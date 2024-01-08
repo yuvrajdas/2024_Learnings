@@ -92,7 +92,7 @@ public class __14MergeSortOfLinkedList {
         }
 
         private Linkedlist mergeSortHelper(Node head, Node tail) {
-           
+
             if (head == tail) {
                 Linkedlist bn = new Linkedlist();
                 bn.addLast(head.data);
