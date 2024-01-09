@@ -1,8 +1,8 @@
 package DSA.LinkedList;
 
 public class __15MergeSortOfLinkedList2 {
-    
-     public static class Node {
+
+    public static class Node {
         int data;
         Node next;
     }
@@ -49,15 +49,35 @@ public class __15MergeSortOfLinkedList2 {
             System.out.println();
         }
 
-        private Node mergeTwoSortedList(Node fsh, Node ssh){
-            return null;
+        private Node mergeTwoSortedList(Node fsh, Node ssh) {
+
+            if (fsh == null || ssh == null)
+                return fsh != null ? fsh : ssh;
+
+            Node dummy = new Node();
+            Node prev = dummy;
+            Node l1 = fsh;
+            Node l2 = ssh;
+
+            while (l1 != null && l2 != null) {
+                if (l1.data < l2.data) {
+                    prev.next = l1;
+                    l1 = l1.next;
+                } else {
+                    prev.next = l2;
+                    l2 = l2.next;
+                }
+                prev = prev.next;
+            }
+            prev.next = l1 != null ? l1 : l2;
+            return dummy.next;
         }
 
-        private Node findMid(Node head){
+        private Node findMid(Node head) {
             Node slow = head;
             Node fast = head;
 
-            while(fast.next!=null && fast.next.next!=null){
+            while (fast.next != null && fast.next.next != null) {
                 slow = slow.next;
                 fast = fast.next.next;
             }
@@ -66,7 +86,8 @@ public class __15MergeSortOfLinkedList2 {
         }
 
         public Node mergeSort(Node head) {
-            if(head == null || head.next == null) return head;
+            if (head == null || head.next == null)
+                return head;
 
             Node mid = findMid(head);
             Node nHead = mid.next;
@@ -86,6 +107,7 @@ public class __15MergeSortOfLinkedList2 {
         ll1.addLast(3);
         ll1.addLast(2);
         ll1.addLast(8);
-        ll1.mergeSort(ll1.head);
+        Node head = ll1.mergeSort(ll1.head);
+        ll1.printList(head);
     }
 }
