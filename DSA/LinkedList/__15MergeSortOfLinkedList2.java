@@ -49,9 +49,33 @@ public class __15MergeSortOfLinkedList2 {
             System.out.println();
         }
 
-        private Node mergeSort(Node head) {
-            
+        private Node mergeTwoSortedList(Node fsh, Node ssh){
             return null;
+        }
+
+        private Node findMid(Node head){
+            Node slow = head;
+            Node fast = head;
+
+            while(fast.next!=null && fast.next.next!=null){
+                slow = slow.next;
+                fast = fast.next.next;
+            }
+
+            return slow;
+        }
+
+        public Node mergeSort(Node head) {
+            if(head == null || head.next == null) return head;
+
+            Node mid = findMid(head);
+            Node nHead = mid.next;
+            mid.next = null;
+
+            Node fsh = mergeSort(head);
+            Node ssh = mergeSort(nHead);
+
+            return mergeTwoSortedList(fsh, ssh);
         }
     }
 
