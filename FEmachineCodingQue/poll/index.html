@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Poll</title>
+        <link rel="stylesheet" href="./style.css">
+        <style>
+            * {
+                margin: 0px;
+                padding: 0px;
+            }
+
+            body {
+                margin: 0px !important;
+                padding: 0px !important;
+                box-sizing: border-box;
+                height: 100vh;
+                background-color: rgb(64, 64, 64);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .poll-container {
+                background-color: antiquewhite;
+                height: 250px;
+                width: 300px;
+            }
+
+            p {
+                text-align: center;
+                margin-top: 15px;
+                font-weight: 600;
+                font-size: large;
+            }
+
+            li {
+                list-style: none;
+                margin: 15px;
+                padding: 5px;
+                border: 1px solid;
+                border-radius: 5px;
+                background: azure;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="poll-container">
+            <p>Language Selection Poll</p>
+            <ul>
+                <li><input type="radio" name="language" id=""> Javascript </li>
+                <li><input type="radio" name="language" id=""> Java </li>
+                <li><input type="radio" name="language" id=""> Python </li>
+                <li><input type="radio" name="language" id=""> C++ </li>
+            </ul>
+        </div>
+
+    </body>
+
+</html>
