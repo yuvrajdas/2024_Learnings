@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Heigher Order Function</title>
+    </head>
+
+    <body>
+        <script>
+            /*
+                Heigher Order Function : A function that takes a function as argument or returns a function or both is known as HOF.
+                Eg : Map, Filter, Reduce
+            */
+
+            // Example 1
+            function hello() {
+                return function () {
+                    console.log("Im heigher oder function");
+                }
+            }
+            hello()();
+
+            // Example 2
+            function hi() {
+                console.log("Im hi function");
+            }
+            function hello1(hi) {
+                hi();
+                console.log("I'm hello function");
+            }
+            hello1(hi);
+
+            // Example 3
+            function f1() {
+                console.log("I'm f1");
+            }
+            function fun(f1) {
+                f1();
+                return function f2() {
+                    console.log("f2 function");
+                }
+            }
+
+            let res = fun(f1);  
+            res();
+        </script>
+    </body>
+
+</html>
