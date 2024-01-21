@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temporal Dead Zone</title>
+</head>
+<body>
+    <script>
+
+        /*
+            Temporal DeadZone : It is a time between when the let and const variable are hoisted and till the value assigned to it.
+            Let and Cosnt variables are also hoisted but in different memory location where the compiler cannot access that value.
+            that is why we get the error (value cannot be accessed before initialization).
+        */
+        console.log(x);
+        console.log(y);
+        let x = 10;
+        const y  = 2;
+    </script>
+</body>
+</html>

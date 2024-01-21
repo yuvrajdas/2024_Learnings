@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        * Hoisting => Hoisting in javascript is a mechanism where we can access the function and variables even before it's declaration.
+        * How Hoisting works => so the answer lies in the execution context.
+        *                       When we write any code and even before of code execution a global execution context 
+        *                       is created and in this phase memory is created for every variable and functions 
+        *                       and assinged value to them  
+        *                       for variable => (undefined) value
+        *                       for function => function itself
+        * 
+        * so when we access the varialbe even befor its declaration the value is taken from the Global execution context.
+        */
+        console.log(x);
+        hello();
+        var x = 10;
+        function hello(){
+            console.log("hi");
+        }
+    </script>
+</body>
+</html>

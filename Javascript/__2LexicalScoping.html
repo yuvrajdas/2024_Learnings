@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexical Scoping</title>
+</head>
+<body>
+    <script>
+        /*
+            Lexical Scoping : Accessibility of variables and functions within a block
+        */
+
+        function hello(){
+            let x = 10;
+            function hi(){
+                console.log(x);
+            }
+        }
+
+        hello();
+    </script>
+</body>
+</html>
