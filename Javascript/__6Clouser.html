@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // A function having access to the laxically scope of its parent.
+        function x(){
+            let a = 10;
+            function y(){
+                console.log(a);          
+            } 
+            return y;
+        }
+
+        let z = x();
+        console.log(z());  
+    </script>
+</body>
+</html>
