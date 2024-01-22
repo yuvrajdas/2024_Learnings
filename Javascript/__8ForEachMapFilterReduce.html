@@ -1,0 +1,84 @@
+<script>
+    let companies = [
+        { company: 'Microsoft', industry: 'Technology', employees: 181000, revenue: 143020000000 },
+        { company: 'JPMorgan Chase', industry: 'Finance', employees: 256105, revenue: 146510000000 },
+        { company: 'Johnson & Johnson', industry: 'Healthcare', employees: 135100, revenue: 82400000000 },
+        { company: 'Walmart', industry: 'Retail', employees: 2200000, revenue: 559150000000 },
+        { company: 'Toyota', industry: 'Automotive', employees: 366283, revenue: 275417000000 }
+    ];
+
+    let material = [
+        { category: "Electronics", quantity: 2, price: 200, product: "Laptop" },
+        { category: "Home Appliances", quantity: 7, price: 129, product: "Toaster" },
+        { category: "Clothing", quantity: 2, price: 200, product: "T-Shirt" },
+        { category: "Books", quantity: 2, price: 12, product: "Novel" },
+        { category: "Sports Equipment", quantity: 3, price: 34, product: "Tennis Racket" }
+    ];  
+    
+    let values = [2,3,4,5,6,7];
+
+    /*
+        1. forEach
+        It is a higher order function that take a function as argument. We can pass three parameter to this callback function in which 
+        Array value
+        Index
+        Array itself
+        The forEach method call the function for each of the element. And it return nothing.
+    */
+    
+    let res = values.forEach((ele, idx)=>{
+        // console.log(ele);
+        if(ele === 5){
+            return ele;
+        }
+    })
+    console.log(res); // Return vlaue undefined sice it return nothing
+
+    /*
+        2. Map
+        It is a heigher order function that takes a function as argument. We can pass three parameter to this callback function in which
+        i.   Array Value
+        ii.  index
+        iii. Array itself
+        The forEach method call the function for each of the element. And it return the modified array.
+        Use : To modify (Modification) the existing array
+    */
+    let resCompanies = companies.map((ele, i)=>{
+        ele['idx'] = i;
+        return ele;
+    })
+    console.log(resCompanies);
+
+    /*
+        3. Filter
+        It is a heigher order function that takes a function as argument. We can pass three parameter to this callback function in which
+        i.   Array Value
+        ii.  index
+        iii. Array itself
+        The filter method call the function for each of the element. And it return the filtered array.
+        Use : To filter-out data from the existing array.
+    */
+    let filtedMaterial = material.filter((ele)=> ele.price === 200);
+    console.log(filtedMaterial);
+
+    /*
+        4. Reduce : 
+        It is a heigher order function that takes a function as argument. Reduce method expect two parameter 
+        i.   Accumulato
+        ii.  Current Value
+        The Reduce method call the function for each of the element. And it returns the sinle value .
+        Use : If the output expect some single value in that case we use reduce method.
+    */
+   
+    let result =  material.reduce((acc, curr)=>{
+        if(!acc[curr.price]){
+            acc[curr.price] = [];
+        }
+        acc[curr.price].push(curr);
+        return acc;
+    },{})
+
+    console.log("res",result);
+
+</script>
+ 
