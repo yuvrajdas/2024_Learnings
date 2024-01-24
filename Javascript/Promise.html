@@ -1,0 +1,49 @@
+<script>
+    /*  
+        Promise : A Promse is a Object used to perform an asyncronous task it has three states
+        1. Pending
+        2. Resolve
+        3. Reject
+        Promise can be in one of three states
+    */
+
+    /* Promise for Resolve state*/
+    let resolveStatePromise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("Hello this is promise for resolve state");
+        }, 2000);
+    })
+    resolveStatePromise.then((res) => console.log(res))
+
+    /* Promise for Reject state */
+    let rejectStatePromise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            reject("Hello this is promise for reject state");
+        }, 1000);
+    })
+    rejectStatePromise.then((res) => console.log(res)).catch(err => console.log(err))
+
+    /* Promise for all resolve */
+    let promise1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("promise 1");
+        }, 1000)
+    })
+
+    let promise2 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("promise 2");
+        }, 2000)
+    })
+
+    let promise3 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("promise 3");
+        }, 3000)
+    })
+
+    Promise.all([promise1, promise2, promise3]).then((res) => {
+        console.log(res);
+    })
+
+</script>
