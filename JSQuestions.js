@@ -1,171 +1,92 @@
+// _________________________________________________________________________________________________________________
 
 console.log('start')
-
-
-
 const promise1 = new Promise((resolve, reject) => {
 
-  console.log(1)
+    console.log(1)
 
 })
-
-
 
 console.log('end');
 
+// _________________________________________________________________________________________________________________
 
-
-
-
-QUESTION 2
-
-
-
-What will be the output of the following: (Understand why, similar questions will be asked in interviews)
-
-
+/* What will be the output of the following: (Understand why, similar questions will be asked in interviews) */
 
 console.log('start');
-
-
-
 const promise1 = new Promise((resolve, reject) => {
 
-  console.log(1)
+    console.log(1)
 
-  resolve(2)
-
+    resolve(2)
 })
-
-
 
 promise1.then(res => {
 
-  console.log(res)
+    console.log(res)
 
 })
-
-
-
 console.log('end');
 
+// _________________________________________________________________________________________________________________
 
-
-
-
-QUESTION 3
-
-
-
-What will be the output of the following: (Understand why, similar questions will be asked in interviews)
-
-
+/* What will be the output of the following: (Understand why, similar questions will be asked in interviews) */
 
 console.log('start');
+const promise1 = new Promise((resolve, reject) => {
+
+    console.log(1)
+    resolve(2)
+    console.log(3)
+})
+promise1.then(res => {
+
+    console.log(res)
+
+})
+console.log('end');
+
+// _________________________________________________________________________________________________________________
 
 
+/* What will be the output of the following: (Understand why, similar questions will be asked in interviews) */
+console.log('start');
 
 const promise1 = new Promise((resolve, reject) => {
 
-  console.log(1)
-
-  resolve(2)
-
-  console.log(3)
-
+    console.log(1)
 })
-
-
 
 promise1.then(res => {
-
-  console.log(res)
-
+    console.log(2)
 })
-
-
 
 console.log('end');
 
-
-
-
-
-QUESTION 4
-
-
-
-What will be the output of the following: (Understand why, similar questions will be asked in interviews)
-
-
-
-console.log('start');
-
-
-
-const promise1 = new Promise((resolve, reject) => {
-
-  console.log(1)
-
-})
-
-
-
-promise1.then(res => {
-
-  console.log(2)
-
-})
-
-
-
-console.log('end');
-
-
-
-
-
-QUESTION 5
-
-
-
-What will be the output of the following: (Understand why, similar questions will be asked in interviews)
-
-
+// _________________________________________________________________________________________________________________
+/* What will be the output of the following: (Understand why, similar questions will be asked in interviews) */
 
 console.log('start')
-
-
-
 const fn = () => (new Promise((resolve, reject) => {
 
-  console.log(1);
-
-  resolve('success')
-
+    console.log(1);
+    resolve('success')
 }))
-
-
 
 console.log('middle')
 
-
-
 fn().then(res => {
-
-  console.log(res)
-
+    console.log(res)
 })
 
-
-
 console.log('end')
+
 // __________________________________________________________________
 function create3rdPost(callback) {
-    setTimeout( () => {
+    setTimeout(() => {
         console.log('Post Three')
         //If callback function is passed call it
-        if(callback){
+        if (callback) {
             callback();
         }
     }, 3000)
@@ -173,14 +94,14 @@ function create3rdPost(callback) {
 
 //Please modify this function too to reach the desired output
 function create4thPost() {
-    setTimeout( () => {
+    setTimeout(() => {
         console.log('Post Four')
     }, 2000);
 }
 
 // Do not touch this function at all
 function create5thPost() {
-    setTimeout( () => {
+    setTimeout(() => {
         console.log('Post Five')
     }, 1000);
 }
@@ -1035,9 +956,9 @@ Given a student object as shown below can you write code to iterate through obje
     console.log(arr3)
     // ________________________________________________________________________
 
-Ques.Given a student object as shown below can you write code to iterate through object and find average age of students.
+    Ques.Given a student object as shown below can you write code to iterate through object and find average age of students.
 
-    Input
+        Input
     studentobj = {
         'yash': 26,
         'vaibhav': 24,
