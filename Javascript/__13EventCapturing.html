@@ -51,8 +51,9 @@
             let span = document.getElementsByTagName("span")[0];
             let button = document.getElementsByTagName("button")[0];
 
-            body.addEventListener('click', () => {
+            body.addEventListener('click', (e) => {
                 console.log("body clicked ");
+                // e.stopPropagation(); to stop the default propogation behaviour
             }, true);
 
             div.addEventListener('click', () => {
