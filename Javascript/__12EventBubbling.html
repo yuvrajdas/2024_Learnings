@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling</title>
+    <style>
+        body{
+            background-color: rgb(186, 131, 237);
+            display: flex;
+            height: 97vh;
+            align-items: center;
+            justify-content: center;
+        }
+        div{
+            height: 400px;
+            width: 400px;
+            background-color: yellowgreen;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        span{
+            height: 200px;
+            width: 200px;
+            background-color: rgb(86, 167, 140);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    
+    </style>
+</head>
+<body onclick="alert('body clicked')">
+    <!-- 
+        Event Bubbling : Event bubbling is a concept of DOM when an element recieve an event that event passes to its parents and ancestor also until it gets to the root elment of DOM.
+     -->
+    <div onclick="alert('div clicked')">
+        <span onclick="alert('span clicked')">
+            <button onclick="alert('button clicked')">Click me</button>
+        </span>
+    </div>
+    
+</body>
+</html>
