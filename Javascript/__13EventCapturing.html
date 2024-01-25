@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Event Bubbling</title>
+        <style>
+            body {
+                background-color: rgb(186, 131, 237);
+                display: flex;
+                height: 97vh;
+                align-items: center;
+                justify-content: center;
+            }
+
+            div {
+                height: 400px;
+                width: 400px;
+                background-color: yellowgreen;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            span {
+                height: 200px;
+                width: 200px;
+                background-color: rgb(86, 167, 140);
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- 
+        Event Bubbling : Event bubbling is a concept of DOM when an element recieve an event that event passes from root to target. 
+     -->
+        <div>
+            <span>
+                <button>Click me</button>
+            </span>
+        </div>
+
+        <script>
+            let body = document.getElementsByTagName("body")[0];
+            let div = document.getElementsByTagName("div")[0];
+            let span = document.getElementsByTagName("span")[0];
+            let button = document.getElementsByTagName("button")[0];
+
+            body.addEventListener('click', () => {
+                console.log("body clicked ");
+            }, true);
+
+            div.addEventListener('click', () => {
+                console.log("div clicked ");
+            }, true);
+
+            span.addEventListener('click', () => {
+                console.log("span clicked ");
+            }, true);
+
+            button.addEventListener('click', () => {
+                console.log("button clicked ");
+            }, true);
+        </script>
+    </body>
+
+</html>
