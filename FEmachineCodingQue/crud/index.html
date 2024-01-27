@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 80% !important;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <form onsubmit="addData(event)">
+            <input type="text" placeholder="Enter name" id="uname" name="uname"> &nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" placeholder="Enter email" id="uemail" name="uemail"> &nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" placeholder="Enter mobile" id="umobile" name="umobile"> &nbsp;&nbsp;&nbsp;&nbsp;
+            <button>Add Data</button>
+        </form>
+        <table border="1px">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                </tr>
+            </thead>
+            <tbody id="resBody">
+            </tbody>
+        </table>
+    </div>
+    <script>
+        // Add data 
+        function addData(event) {
+            event.preventDefault();
+
+            let uname = event.target.uname.value;
+            let uemail = event.target.uemail.value;
+            let umobile = event.target.umobile.value;
+
+            const postData = {
+                uname: uname,
+                uemail: uemail,
+                umobile: umobile
+            }
+
+            axios.post('https://crudcrud.com/api/53dce2a3552e4ec8a32e7cc70f55800d/sharpner_data', postData)
+                .then(response => {
+                    // Handle the successful response
+                    console.log('POST Response:', response.data);
+                    getData();
+                })
+                .catch(error => {
+                    // Handle errors
+                    console.error('POST Error:', error);
+                });
+        }
+
+        // get data from API
+        function getData() {
+            axios.get('https://crudcrud.com/api/53dce2a3552e4ec8a32e7cc70f55800d/sharpner_data')
+                .then((response) => {
+                    let htmlContent = '';
+                    response.data.map((ele, idx) => {
+                        htmlContent += `
+                            <tr>
+                                <td>${idx + 1}</td>
+                                <td>${ele.uname}</td>
+                                <td>${ele.uemail}</td>
+                                <td>${ele.umobile}</td>
+                            </tr>`;
+                    });
+                    document.getElementById('resBody').innerHTML = htmlContent;
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        }
+
+        // Initial data retrieval
+        getData();
+    </script>
+</body>
+
+</html>

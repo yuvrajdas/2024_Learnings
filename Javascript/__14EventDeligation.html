@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Eevent Deligation</title>
+        <style>
+            body {
+                background-color: rgb(186, 131, 237);
+                display: flex;
+                height: 97vh;
+                align-items: center;
+                justify-content: center;
+            }
+
+            div {
+                height: 400px;
+                width: 400px;
+                background-color: yellowgreen;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            span {
+                height: 200px;
+                width: 200px;
+                background-color: rgb(86, 167, 140);
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- 
+            Event Deligation : Event Deligation is a pattern to handle the event efficiently. (Deligate the event to someone else)
+            Instead of adding event listener to every element what we can do we can add event the parent element and target the child element with target id, this is know as event deligation. 
+        -->
+
+        <div>
+            <span>
+                <button>click me</button>
+            </span>
+        </div>
+
+        <script>
+            let div = document.getElementsByTagName("div")[0]
+            console.log(div);
+        </script>
+    </body>
+</html>
