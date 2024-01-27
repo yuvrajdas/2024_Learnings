@@ -47,6 +47,7 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Mobile</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody id="resBody">
@@ -72,12 +73,17 @@
                 .then(response => {
                     // Handle the successful response
                     console.log('POST Response:', response.data);
+                    // Refresh the data after adding
                     getData();
                 })
                 .catch(error => {
                     // Handle errors
                     console.error('POST Error:', error);
                 });
+
+            event.target.uname.value = '';
+            event.target.uemail.value = '';
+            event.target.umobile.value = '';
         }
 
         // get data from API
@@ -92,6 +98,7 @@
                                 <td>${ele.uname}</td>
                                 <td>${ele.uemail}</td>
                                 <td>${ele.umobile}</td>
+                                <td><button onclick='deleteUser("${ele._id}")'>Delete</button></td>
                             </tr>`;
                     });
                     document.getElementById('resBody').innerHTML = htmlContent;
@@ -99,6 +106,25 @@
                 .catch((err) => {
                     console.log(err);
                 });
+        }
+
+        // Delete user
+        function deleteUser(userId) {
+            let res =  confirm('Are your sure want to delete this user')
+            if(res){
+                axios.delete(`https://crudcrud.com/api/53dce2a3552e4ec8a32e7cc70f55800d/sharpner_data/${userId}`)
+                .then(response => {
+                    // Handle the successful response
+                    alert("Record Deleted Successfully...")
+                    // Refresh the data after deletion
+                    getData();
+                })
+                .catch(error => {
+                    // Handle errors
+                    console.error('DELETE Error:', error);
+                });
+            }
+            
         }
 
         // Initial data retrieval
