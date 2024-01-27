@@ -34,11 +34,11 @@
 
 <body>
     <div class="container">
-        <form onsubmit="addData(event)">
+        <form id="dataForm">
             <input type="text" placeholder="Enter name" id="uname" name="uname"> &nbsp;&nbsp;&nbsp;&nbsp;
             <input type="text" placeholder="Enter email" id="uemail" name="uemail"> &nbsp;&nbsp;&nbsp;&nbsp;
             <input type="text" placeholder="Enter mobile" id="umobile" name="umobile"> &nbsp;&nbsp;&nbsp;&nbsp;
-            <button>Add Data</button>
+            <button type="button" onclick="addData()">Add Data</button>
         </form>
         <table border="1px">
             <thead>
@@ -55,13 +55,16 @@
         </table>
     </div>
     <script>
-        // Add data 
-        function addData(event) {
+        document.getElementById('dataForm').addEventListener('submit', function (event) {
             event.preventDefault();
+            addData();
+        });
 
-            let uname = event.target.uname.value;
-            let uemail = event.target.uemail.value;
-            let umobile = event.target.umobile.value;
+        // Add data 
+        function addData() {
+            let uname = document.getElementById('uname').value;
+            let uemail = document.getElementById('uemail').value;
+            let umobile = document.getElementById('umobile').value;
 
             const postData = {
                 uname: uname,
@@ -69,21 +72,44 @@
                 umobile: umobile
             }
 
-            axios.post('https://crudcrud.com/api/53dce2a3552e4ec8a32e7cc70f55800d/sharpner_data', postData)
+            // Check if row is provided (edit mode)
+            if (document.getElementById('dataForm').dataset.row) {
+                const row = JSON.parse(document.getElementById('dataForm').dataset.row);
+                updateData(row._id, postData);
+            } else {
+                // Add new data
+                axios.post('https://crudcrud.com/api/53dce2a3552e4ec8a32e7cc70f55800d/sharpner_data', postData)
+                    .then(response => {
+                        // Handle the successful response
+                        console.log('POST Response:', response.data);
+                        // Refresh the data after adding
+                        getData();
+                    })
+                    .catch(error => {
+                        // Handle errors
+                        console.error('POST Error:', error);
+                    });
+            }
+
+            // Reset form fields
+            document.getElementById('uname').value = '';
+            document.getElementById('uemail').value = '';
+            document.getElementById('umobile').value = '';
+        }
+
+        // Update data
+        function updateData(userId, postData) {
+            axios.put(`https://crudcrud.com/api/53dce2a3552e4ec8a32e7cc70f55800d/sharpner_data/${userId}`, postData)
                 .then(response => {
                     // Handle the successful response
-                    console.log('POST Response:', response.data);
-                    // Refresh the data after adding
+                    alert("Record Updated Successfully...")
+                    // Refresh the data after updating
                     getData();
                 })
                 .catch(error => {
                     // Handle errors
-                    console.error('POST Error:', error);
+                    console.error('PUT Error:', error);
                 });
-
-            event.target.uname.value = '';
-            event.target.uemail.value = '';
-            event.target.umobile.value = '';
         }
 
         // get data from API
@@ -98,7 +124,10 @@
                                 <td>${ele.uname}</td>
                                 <td>${ele.uemail}</td>
                                 <td>${ele.umobile}</td>
-                                <td><button onclick='deleteUser("${ele._id}")'>Delete</button></td>
+                                <td>
+                                    <button onclick='deleteUser("${ele._id}")'> Delete </button>
+                                    <button onclick='editData(${JSON.stringify(ele)})'> Edit </button>
+                                </td>
                             </tr>`;
                     });
                     document.getElementById('resBody').innerHTML = htmlContent;
@@ -108,23 +137,32 @@
                 });
         }
 
+        // Edit data
+        function editData(row) {
+            document.getElementById('uname').value = row.uname;
+            document.getElementById('uemail').value = row.uemail;
+            document.getElementById('umobile').value = row.umobile;
+            // Set the row data as a dataset attribute
+            document.getElementById('dataForm').dataset.row = JSON.stringify(row);
+        }
+
         // Delete user
         function deleteUser(userId) {
-            let res =  confirm('Are your sure want to delete this user')
-            if(res){
+            let res = confirm('Are your sure want to delete this user')
+            if (res) {
                 axios.delete(`https://crudcrud.com/api/53dce2a3552e4ec8a32e7cc70f55800d/sharpner_data/${userId}`)
-                .then(response => {
-                    // Handle the successful response
-                    alert("Record Deleted Successfully...")
-                    // Refresh the data after deletion
-                    getData();
-                })
-                .catch(error => {
-                    // Handle errors
-                    console.error('DELETE Error:', error);
-                });
+                    .then(response => {
+                        // Handle the successful response
+                        alert("Record Deleted Successfully...")
+                        // Refresh the data after deletion
+                        getData();
+                    })
+                    .catch(error => {
+                        // Handle errors
+                        console.error('DELETE Error:', error);
+                    });
             }
-            
+
         }
 
         // Initial data retrieval
