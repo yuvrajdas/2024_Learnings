@@ -1,0 +1,28 @@
+<script>
+    /*
+        Factory function : Factory function is a function that returns an object.
+        Use : We can create object instance without using new keyword or Class.
+    */
+
+    function samsung(){
+        return {
+            model:"Galaxy S15",
+            price:52000
+        }
+    }
+
+    let samsung_mobile = samsung();
+    console.log(samsung_mobile);
+
+    let moto_mobile = samsung(); // another instance
+    moto_mobile.model = "M13",
+    moto_mobile.price = 1300
+    console.log(moto_mobile);
+
+    let nokia_mobile = samsung(); // another instance
+    nokia_mobile.model = "Nokia Lumia"
+    nokia_mobile.price = 42000
+    console.log(nokia_mobile);
+    
+    
+</script>

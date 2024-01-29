@@ -1,0 +1,49 @@
+<script>
+    /*
+        Object : An Object is a collection of key-value pair data.
+        Types of Object : There four type of object in javascript
+        1. User-define Object
+        2. Native Object : Array, Date, Object, Map, etc.
+        3. Host Object : window, navigator
+        4. Document Object : document
+
+        Ways to Create an object 
+        1. Object literal
+        2. Object Constructor
+        3. Factory function
+    */
+
+    // Object literal
+    let person = {}
+    person.name = "Rajat"
+    person.age = 27
+    person["Father Name"] = "Anurag"
+    console.log(person);
+
+
+    // Object Constructor
+    let books = new Object();
+    books.name = "Programming with C"
+    books.pages = 1000
+    books["Author Name"] = "Unknown"
+    books["random"] = "Random value"
+    console.log(books);
+
+
+    // Deleting property from the object 
+    delete books.random
+    console.log(books);
+    
+    // check for property exist or not
+    if(books.hasOwnProperty('pages')){
+        console.log("Key exist");
+    }else{
+        console.log("key not exist");
+    }
+
+    // iterate over the object
+    console.log("Object iteration______________________");
+    for(let key in books){
+        console.log(key);
+    }
+</script>
