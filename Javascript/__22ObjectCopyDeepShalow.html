@@ -1,0 +1,65 @@
+<script>
+    /*
+        Shalow Copy : Copy only single level object.
+        Deep Copy : Copies all level object.
+    */
+
+    let obj = {
+        name: "Yuvraj"
+    }
+    /*
+        below ouput will be =>  Das
+        Reason => in the person variable copying the memory reference of obj not value
+        hence when we are changing the name of person it pointing to obj and changing the name value.
+    */
+    let person = obj;
+    person.name = "Das";
+    console.log(obj);
+
+    // Method 1 to solve above issue
+    let obj1 = { name: "Raju" }
+    let person1 = { ...obj1 } // using spread operator we can solve this issue, now it (Shalow Copy) copying the value not memory reference 
+    person1.name = "Shyam"
+    console.log(obj1);
+
+    // Method 2 to solve above issue
+    let obj2 = { name: "Pooja" }
+    let person2 = Object.assign({}, obj2) // using spread operator we can solve this issue, now it (Shalow Copy) copying the value not memory reference 
+    person2.name = "Meera"
+    console.log(obj1);
+
+    
+    let student = {
+        name:"Radha",
+        marks:{
+            maths:78,
+            physics:52,
+            english:75
+        },
+        class:12
+    }
+    // to copy the student object the spread and Object.assign() won't work we can solve this issue as below
+    let copyStudent = JSON.parse(JSON.stringify(student));
+    copyStudent.marks.maths = 90;
+    console.log(student);
+    console.log(copyStudent);
+
+    /*if the student object contain any method then JSON.parse(JSON.stringify(student)); will not work.
+      in that case we have other libray lodash to deep copy the object.
+    */
+
+    let student1 = {
+        name:"Radha",
+        marks:{
+            maths:78,
+            physics:52,
+            english:75
+        },
+        class:12,
+        getDetails:function(){
+            return this.name+" "+this.class
+        }
+    }
+
+    let deepCopyObj = _.cloneDeep(student1)
+</script>
