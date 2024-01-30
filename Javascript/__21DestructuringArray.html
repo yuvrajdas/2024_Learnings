@@ -1,0 +1,12 @@
+<script>
+    let arr = ["hello", "good afternoon", ["nestedVal"],3, 6, 9, ]
+
+    const [msg, s,[nv]] = arr;
+    console.log(msg, s, nv);
+
+
+    let obj = { name:"Your name", address :{city:"raigarh", state:"chattisgarh"}}
+
+    const {name, address:{city}} = obj;
+    console.log(name, city);
+</script>
