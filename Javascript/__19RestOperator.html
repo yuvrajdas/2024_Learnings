@@ -1,0 +1,18 @@
+<script>
+    /*
+        Rest Operator : It is an array, When we need to pass the dynamic number of parameters to any function in that case the rest operator is used. 
+    */
+
+    function sum(...args){
+        console.log(args); // it is treates as an array.
+
+        return args.reduce((acc, curr)=>{
+            acc+=curr;
+            return acc;
+        },0)
+    }
+
+    sum() //pasing no parameter.
+    let res = sum(1,2,3,4,5,6) // passing n number of dynamic parameters
+    console.log(res);
+</script>
