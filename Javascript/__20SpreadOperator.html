@@ -1,0 +1,29 @@
+<script>
+    /*
+        Spread Operator : Spread  Operator allows us to quickly copy all or partially value from one array or object to another array or object. 
+    */
+
+   let arr1 = [1,2,3,4,5];
+   let arr2 = [6,7,8];
+
+   arr2 = [...arr2, ...arr1.splice(2)];
+   console.log(arr2);
+
+
+    const [a, b, ...everythingElse] = [0, 1, 1, 2, 3, 5, 8];
+    console.log(a, b, everythingElse); // 0, 1, [1,2,3,5,8]
+
+    // Error coz rest paramete always shold be last while destructuring the array.
+    // const [...items, last] = [2, 4, 8, 16]
+
+    const { street, ...address } = {
+        street: 'Platz der Republik 1',
+        postalCode: '11011',
+        city: 'Berlin',
+    };
+    console.log(street, address);
+    // output : 'Platz der Republik 1', { postalCode:'11011', city: 'Berlin'}
+
+    let res = [0, 1, 1, 2, 3, 5, 8].join(" ");
+    console.log(res, "con"); // 0 1 1 2 3 5 8 => typeof res (string)
+</script>
