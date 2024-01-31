@@ -1,0 +1,53 @@
+<script>
+
+    /*
+        Prototype : in Javascript every object has a built-in property which is PROTOTYPE.
+                    Prototype itself is an object.
+        
+        Let suppose we have constructor function having some property
+        like => name, year, branch and 
+        college which will be common for all object
+        so instead of adding the common property inside the constructor function we can add it in it's Protype in this way
+        the common property will be availbe for every object.
+        like below example :-
+    */
+    function Student(name, year, branch){
+        this.name = name;
+        this.year = year;
+        this.branch = branch;     
+    }
+    Student.prototype.college = "CCEM"
+    let vinay = new Student("Vinay", 2025, "CSE");
+    let rohit = new Student("Rohit", 2025, "Mech");
+    let ruhi = new Student("Ruhi", 2025, "Civil");
+    // console.log(vinay,rohit,ruhi);
+    
+    /* __________________________________________________________________________________________________________________________
+       Prototype inheritance : When an object takes some property from another object's prototype,  called prototype inheritance.
+       
+       Prototype chaining : Using prototype inheritance child object can access the property of parent and at the top of this the main JS prototype object is preset and the main js object points to the null.
+       these are connected with there prototypes and it is known as prototype chaining.
+    */
+    function Creature(ls){
+        this.lifeSpan = ls;
+    } 
+    
+    Creature.prototype.breathing = function(){
+        console.log("Breathing....");
+    }
+
+    Person.prototype.__proto__ = Creature.prototype
+
+    function Person(name, prof, city){
+        this.name = name;
+        this.prof = prof;
+        this.city = city;
+    }
+
+    let raju = new Person("Raju", "Student", "Gurgaon");
+    Person.prototype.detail = raju.name+" "+raju.city;
+
+    let rajuLifeSpan = new Creature(100);
+
+    console.log(raju);
+</script>
