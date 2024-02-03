@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Debouncing</title>
+        <style>
+            div {
+                display: flex;
+                justify-content: center;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div>
+            <input type="text" onkeyup="getDataBetterFun(event)">
+        </div>
+        <script>
+            /*
+                Debouncing : There is no keyword like debouncing exist in javascript, we have to impliment it.
+                it is a function that taks two parameter 
+                1. function
+                2. delay time
+    
+                The debouncing concept says instead of call the function for every input, wait for a specified delay time and then after call for response.
+            */
+
+            function getData(event) {
+                console.log(event.target.value);
+            }
+
+            function debounce(fun, delay) { // decorator function returns a function and takes functin as argument.
+                let timer;
+                return function (...args) {
+
+                    clearTimeout(timer);
+
+                    timer = setTimeout(() => {
+                        fun.call(this, ...args);
+                    }, delay)
+                }
+            }
+
+            let getDataBetterFun = debounce(getData, 1000);
+        </script>
+
+    </body>
+
+</html>
