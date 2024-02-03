@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Throttling</title>
+</head>
+<body>  
+    <h4>Throttling</h4>
+    <button onclick="fire()">Fire</button>
+
+    <script>
+        /*
+            Throtting : It is a concept in javascript where first event let it execute and for the rest wait for the specified delay time.
+        */
+        function executeFire(val){
+            console.log("gun "+val);
+        }
+
+        let isWaiting = false;
+        function fire() {
+            if(!isWaiting){
+                executeFire.call(this, "fired")
+                isWaiting = true;
+                setTimeout(() => {
+                    isWaiting = false;
+                }, 1000);
+            }
+        }
+    </script>
+</body>
+</html>
