@@ -1,0 +1,19 @@
+<script>
+    var divideby100 = (number) => {
+        return number / 10
+    }
+ 
+    const myObject = {
+    name: "My Object",
+    regularMethod: function () {
+        console.log(this.name); // 'this' refers to myObject, prints "My Object"
+    },
+    arrowMethod: () => {
+        console.log(this); // 'this' in arrowMethod still refers to the lexical scope, not myObject
+    }
+};
+
+myObject.regularMethod(); // 'this' in regularMethod refers to myObject
+myObject.arrowMethod();   // 'this' in arrowMethod does not refer to myObject, may print undefined or another value
+
+</script>
