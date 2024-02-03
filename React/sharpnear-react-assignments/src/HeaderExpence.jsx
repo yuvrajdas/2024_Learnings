@@ -1,7 +1,9 @@
 import React from 'react'
 import './HeaderExpence.css';
 import Props from './Props';
-const HeaderExpence = () => {
+import ExpenceDetails from './ExpenceDetails';
+import ExpenceDate from './ExpenceDate';
+const HeaderExpence = (props) => {
     let locationOfExpenditure = "Hyderabad";
     let expenceItem = [
         {food:10, petrol:100, movie:200},
@@ -11,6 +13,11 @@ const HeaderExpence = () => {
     ]
     return (
         <>
+           <div className='expense-item'>
+                <ExpenceDate date={props.date} />
+                <ExpenceDetails  amount={props.amount}  location={props.location}   title={props.title} />
+            </div>
+            {/* ---------------------------------------------------------------- */}
             <Props location={locationOfExpenditure} expItem={expenceItem} />
             <h2>Expense Items</h2>
             <p>Location of Expenditure <strong>{locationOfExpenditure}</strong></p>
