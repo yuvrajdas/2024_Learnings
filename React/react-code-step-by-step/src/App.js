@@ -4,6 +4,7 @@ import __1Props from "./Concepts/__1Props";
 import __2PropsWithClassComp from "./Concepts/__2PropsWithClassComp";
 import __3InputBox from "./Concepts/__3InputBox";
 import __4Toggler from "./Concepts/__4Toggler";
+import __5NormalForm from "./Concepts/__5NormalForm";
 
 function App() {
   function myFun(){
@@ -23,7 +24,8 @@ function App() {
     <hr />
     <__4Toggler />
     <hr />
-
+    <__5NormalForm/>
+    <hr/>
    </>
   );
 }
