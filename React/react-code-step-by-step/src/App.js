@@ -1,9 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
+import State from "./Concepts/State";
 
 function App() {
   return (
    <>
+    <State />
    </>
   );
 }
