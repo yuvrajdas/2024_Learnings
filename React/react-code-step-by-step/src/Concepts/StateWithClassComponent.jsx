@@ -18,6 +18,8 @@ export default class StateWithClassComponent extends Component{
     render(){
         return(
             <>  
+                <br />
+                <h3>State with class Component</h3>
                 <strong>{this.state.count}</strong>
                 <button onClick={()=>this.changeValue()}>Click Me</button>
             </>
