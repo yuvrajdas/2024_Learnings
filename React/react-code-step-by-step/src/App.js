@@ -7,6 +7,7 @@ import __4Toggler from "./Concepts/__4Toggler";
 import __5NormalForm from "./Concepts/__5NormalForm";
 import __1ConstructorAndRender from "./LifeCycleMethods/__1ConstructorAndRender";
 import __2ComponentDidMount from "./LifeCycleMethods/__2ComponentDidMount";
+import __3ComponentDidUpdate from "./LifeCycleMethods/__3ComponentDidUpdate";
 
 function App() {
   function myFun(){
@@ -14,7 +15,7 @@ function App() {
   }
   return (
    <>
-    <State />
+    {/* <State />
     <hr />
     <StateWithClassComponent />
     <hr />
@@ -29,7 +30,8 @@ function App() {
     <__5NormalForm/>
     <hr/>
     <__1ConstructorAndRender />
-    <__2ComponentDidMount />
+    <__2ComponentDidMount /> */}
+    <__3ComponentDidUpdate />
    </>
   );
 }
