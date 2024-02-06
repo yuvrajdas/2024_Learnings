@@ -8,6 +8,7 @@ import __5NormalForm from "./Concepts/__5NormalForm";
 import __1ConstructorAndRender from "./LifeCycleMethods/__1ConstructorAndRender";
 import __2ComponentDidMount from "./LifeCycleMethods/__2ComponentDidMount";
 import __3ComponentDidUpdate from "./LifeCycleMethods/__3ComponentDidUpdate";
+import __4ComponentShouldUpdate from "./LifeCycleMethods/__4ComponentShouldUpdate";
 
 function App() {
   function myFun(){
@@ -31,7 +32,8 @@ function App() {
     <hr/>
     <__1ConstructorAndRender />
     <__2ComponentDidMount /> */}
-    <__3ComponentDidUpdate />
+    {/* <__3ComponentDidUpdate /> */}
+    <__4ComponentShouldUpdate />
    </>
   );
 }
