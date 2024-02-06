@@ -9,6 +9,7 @@ import __1ConstructorAndRender from "./LifeCycleMethods/__1ConstructorAndRender"
 import __2ComponentDidMount from "./LifeCycleMethods/__2ComponentDidMount";
 import __3ComponentDidUpdate from "./LifeCycleMethods/__3ComponentDidUpdate";
 import __4ComponentShouldUpdate from "./LifeCycleMethods/__4ComponentShouldUpdate";
+import __5ComponentWillUnmount from "./LifeCycleMethods/__5ComponentWillUnmount";
 
 function App() {
   function myFun(){
@@ -33,7 +34,8 @@ function App() {
     <__1ConstructorAndRender />
     <__2ComponentDidMount /> */}
     {/* <__3ComponentDidUpdate /> */}
-    <__4ComponentShouldUpdate />
+    {/* <__4ComponentShouldUpdate /> */}
+    <__5ComponentWillUnmount />
    </>
   );
 }
