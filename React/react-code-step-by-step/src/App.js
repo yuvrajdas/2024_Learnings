@@ -10,6 +10,7 @@ import __2ComponentDidMount from "./LifeCycleMethods/__2ComponentDidMount";
 import __3ComponentDidUpdate from "./LifeCycleMethods/__3ComponentDidUpdate";
 import __4ComponentShouldUpdate from "./LifeCycleMethods/__4ComponentShouldUpdate";
 import __5ComponentWillUnmount from "./LifeCycleMethods/__5ComponentWillUnmount";
+import __1UseState from "./Hooks/__1UseState";
 
 function App() {
   function myFun(){
@@ -35,7 +36,8 @@ function App() {
     <__2ComponentDidMount /> */}
     {/* <__3ComponentDidUpdate /> */}
     {/* <__4ComponentShouldUpdate /> */}
-    <__5ComponentWillUnmount />
+    {/* <__5ComponentWillUnmount /> */}
+    <__1UseState />
    </>
   );
 }
