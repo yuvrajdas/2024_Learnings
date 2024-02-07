@@ -11,6 +11,7 @@ import __3ComponentDidUpdate from "./LifeCycleMethods/__3ComponentDidUpdate";
 import __4ComponentShouldUpdate from "./LifeCycleMethods/__4ComponentShouldUpdate";
 import __5ComponentWillUnmount from "./LifeCycleMethods/__5ComponentWillUnmount";
 import __1UseState from "./Hooks/__1UseState";
+import __2UseEffect from "./Hooks/__2UseEffect";
 
 function App() {
   function myFun(){
@@ -37,7 +38,8 @@ function App() {
     {/* <__3ComponentDidUpdate /> */}
     {/* <__4ComponentShouldUpdate /> */}
     {/* <__5ComponentWillUnmount /> */}
-    <__1UseState />
+    {/* <__1UseState /> */}
+    <__2UseEffect />
    </>
   );
 }
