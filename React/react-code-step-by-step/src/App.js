@@ -6,6 +6,7 @@ import __3InputBox from "./Concepts/__3InputBox";
 import __4Toggler from "./Concepts/__4Toggler";
 import __6DataTransfer from "./Concepts/__6DataTransfer";
 import __5NormalForm from "./Concepts/__5NormalForm";
+import __7PureComponent from "./Concepts/__7PureComponent";
 import __1ConstructorAndRender from "./LifeCycleMethods/__1ConstructorAndRender";
 import __2ComponentDidMount from "./LifeCycleMethods/__2ComponentDidMount";
 import __3ComponentDidUpdate from "./LifeCycleMethods/__3ComponentDidUpdate";
@@ -47,8 +48,9 @@ function App() {
     {/* <__5ComponentWillUnmount /> */}
     {/* <__1UseState /> */}
     {/* <__2UseEffect /> */}
-    <p>{state} came from child to parent</p>
-    <__6DataTransfer parentData="App data" alert={getDataFromChild} />
+    {/* <p>{state} came from child to parent</p>
+    <__6DataTransfer parentData="App data" alert={getDataFromChild} /> */}
+    <__7PureComponent />
    </>
   );
 }
