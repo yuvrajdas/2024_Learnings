@@ -14,6 +14,7 @@ import __4ComponentShouldUpdate from "./LifeCycleMethods/__4ComponentShouldUpdat
 import __5ComponentWillUnmount from "./LifeCycleMethods/__5ComponentWillUnmount";
 import __1UseState from "./Hooks/__1UseState";
 import __2UseEffect from "./Hooks/__2UseEffect";
+import __3UseMemo from "./Hooks/__3UseMemo";
 import React,{useState} from "react";
 function App() {
   const [state, setState] = useState("")
@@ -50,7 +51,8 @@ function App() {
     {/* <__2UseEffect /> */}
     {/* <p>{state} came from child to parent</p>
     <__6DataTransfer parentData="App data" alert={getDataFromChild} /> */}
-    <__7PureComponent />
+    {/* <__7PureComponent /> */}
+    <__3UseMemo />
    </>
   );
 }
