@@ -8,6 +8,7 @@ import __6DataTransfer from "./Concepts/__6DataTransfer";
 import __5NormalForm from "./Concepts/__5NormalForm";
 import __7PureComponent from "./Concepts/__7PureComponent";
 import __8RefInClassComp from "./Concepts/__8RefInClassComp";
+import __9ControlledComponent from "./Concepts/__9ControlledComponent";
 import __1ConstructorAndRender from "./LifeCycleMethods/__1ConstructorAndRender";
 import __2ComponentDidMount from "./LifeCycleMethods/__2ComponentDidMount";
 import __3ComponentDidUpdate from "./LifeCycleMethods/__3ComponentDidUpdate";
@@ -56,7 +57,8 @@ function App() {
     {/* <__7PureComponent /> */}
     {/* <__3UseMemo /> */}
     {/* <__8RefInClassComp /> */}
-    <__4UseRef />
+    {/* <__4UseRef /> */}
+    <__9ControlledComponent />
    </>
   );
 }
