@@ -32,7 +32,11 @@ import NavBar from './Router/NavBar';
 import __1SearchParam from './Router/__1SearchParam';
 import __2UseNavigate from './Router/__2UseNavigate';
 import __3UseLocation from './Router/__3UseLocation';
+import __4NestedRoute from './Router/__4NestedRoute';
 import './App.css';
+import CompanySize from "./Router/CompanySize";
+import CompanyDetails from "./Router/CompanyDetails";
+import CompanyLocation from "./Router/CompanyLocation";
 function App() {
   const [state, setState] = useState("")
   function myFun(){
@@ -85,6 +89,11 @@ function App() {
     <Route path="/search-param" element={<__1SearchParam />} />
     <Route path="/use-navigate" element={<__2UseNavigate />} />
     <Route path="/use-location" element={<__3UseLocation />} />
+    <Route path="/company" element={<__4NestedRoute />}>
+      <Route path="/company/company-size" element={<CompanySize />} />
+      <Route path="/company/comapny-details" element={<CompanyDetails />} />
+      <Route path="/company/company-location" element={<CompanyLocation />} />
+    </Route>
     <Route path="/*" element={<PageNotFount />} />
   </Routes>
 </BrowserRouter>
