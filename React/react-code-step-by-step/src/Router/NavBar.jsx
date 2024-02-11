@@ -9,6 +9,8 @@ const NavBar = () => {
                 <li><NavLink to={'/category/catId'}>Category</NavLink></li>
                 <li><NavLink to={'/about/aboutId'}>About</NavLink></li>
                 <li><NavLink to={'/contact/contactId'}>Contact</NavLink></li>
+                <li><NavLink to={'/search-param'}>Search Param</NavLink></li>
+                <li><NavLink to={'/use-navigate'}>Use Navigate</NavLink></li>
             </ul>
         </>
     );

@@ -29,6 +29,8 @@ import Category from './Router/Category';
 import About from './Router/About';
 import PageNotFount from './Router/PageNotFount';
 import NavBar from './Router/NavBar';
+import __1SearchParam from './Router/__1SearchParam';
+import __2UseNavigate from './Router/__2UseNavigate';
 import './App.css';
 function App() {
   const [state, setState] = useState("")
@@ -79,6 +81,8 @@ function App() {
     <Route path="/category/:name" element={<Category />} />
     <Route path="/contact/:name" element={<Contact />} />
     <Route path="/about/:name" element={<About />} />
+    <Route path="/search-param" element={<__1SearchParam />} />
+    <Route path="/use-navigate" element={<__2UseNavigate />} />
     <Route path="/*" element={<PageNotFount />} />
   </Routes>
 </BrowserRouter>
