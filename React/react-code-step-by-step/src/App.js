@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-undef */
 import State from "./Concepts/State";
 import StateWithClassComponent from "./Concepts/StateWithClassComponent";
 import __1Props from "./Concepts/__1Props";
@@ -21,6 +22,14 @@ import __2UseEffect from "./Hooks/__2UseEffect";
 import __3UseMemo from "./Hooks/__3UseMemo";
 import __4UseRef from "./Hooks/__4UseRef";
 import React,{useState} from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from './Router/Home';
+import Contact from './Router/Contact';
+import Category from './Router/Category';
+import About from './Router/About';
+import PageNotFount from './Router/PageNotFount';
+import NavBar from './Router/NavBar';
+import './App.css';
 function App() {
   const [state, setState] = useState("")
   function myFun(){
@@ -63,6 +72,17 @@ function App() {
     {/* <__9ControlledComponent /> */}
     {/* <__10UncontrolledComponent /> */}
     <__11HOCcomponent />
+    <BrowserRouter>
+  <NavBar />
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/category/:name" element={<Category />} />
+    <Route path="/contact/:name" element={<Contact />} />
+    <Route path="/about/:name" element={<About />} />
+    <Route path="/*" element={<PageNotFount />} />
+  </Routes>
+</BrowserRouter>
+
    </>
   );
 }
