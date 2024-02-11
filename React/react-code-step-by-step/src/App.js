@@ -38,6 +38,7 @@ import CompanySize from "./Router/CompanySize";
 import CompanyDetails from "./Router/CompanyDetails";
 import CompanyLocation from "./Router/CompanyLocation";
 import ProtectedRoute from "./Router/ProtectedRoute";
+import CompA from "./ContextAPI/CompA";
 function App() {
   const [state, setState] = useState("")
   function myFun(){
@@ -81,6 +82,7 @@ function App() {
     {/* <__10UncontrolledComponent /> */}
     <__11HOCcomponent />
     <BrowserRouter>
+    <CompA />
   <NavBar />
   <Routes>
     <Route path="/" element={<Home />} />
