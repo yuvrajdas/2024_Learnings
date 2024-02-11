@@ -31,6 +31,7 @@ import PageNotFount from './Router/PageNotFount';
 import NavBar from './Router/NavBar';
 import __1SearchParam from './Router/__1SearchParam';
 import __2UseNavigate from './Router/__2UseNavigate';
+import __3UseLocation from './Router/__3UseLocation';
 import './App.css';
 function App() {
   const [state, setState] = useState("")
@@ -83,6 +84,7 @@ function App() {
     <Route path="/about/:name" element={<About />} />
     <Route path="/search-param" element={<__1SearchParam />} />
     <Route path="/use-navigate" element={<__2UseNavigate />} />
+    <Route path="/use-location" element={<__3UseLocation />} />
     <Route path="/*" element={<PageNotFount />} />
   </Routes>
 </BrowserRouter>

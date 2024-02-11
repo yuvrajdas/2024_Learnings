@@ -11,6 +11,7 @@ const NavBar = () => {
                 <li><NavLink to={'/contact/contactId'}>Contact</NavLink></li>
                 <li><NavLink to={'/search-param'}>Search Param</NavLink></li>
                 <li><NavLink to={'/use-navigate'}>Use Navigate</NavLink></li>
+                <li><NavLink to={'/use-location'}>Use Location</NavLink></li>
             </ul>
         </>
     );
