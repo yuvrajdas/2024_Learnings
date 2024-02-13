@@ -1,15 +1,20 @@
 import React from 'react';
 import './App.css';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import  ContactList from './Components/ContactList';
+import NavBar from './Layout/NavBar';
 
 function App() {
   return (
-    <div className="App">
-      <button className='btn btn-success'>
-      <i class="fa-solid fa-house"></i>
-        Hello
-      </button>
-      <h1 className='text-danger'>asdf</h1>
-    </div>
+    <>
+      <NavBar  />
+      <BrowserRouter>
+        <Routes>
+          <Route path={'/'} element={<Navigate to={'/contacts'} />} />
+          <Route path={'/contacts'} element={<ContactList />} />
+        </Routes> 
+      </BrowserRouter>
+    </>
   );
 }
 
