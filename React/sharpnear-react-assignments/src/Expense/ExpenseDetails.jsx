@@ -9,7 +9,7 @@ const ExpenseDetails = (props) => {
 
   return (
     <>
-      <div className='expense-wrapper'>
+      <div className=='expense-wrapper'>
         <ul>
           {props.expenseData.map((ele, index) => (
             <li key={index}>

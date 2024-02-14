@@ -13,7 +13,7 @@ const HeaderExpence = (props) => {
     ]
     return (
         <>
-           <div className='expense-item'>
+           <div className=='expense-item'>
                 <ExpenceDate date={props.date} />
                 <ExpenceDetails  amount={props.amount}  location={props.location}   title={props.title} />
             </div>

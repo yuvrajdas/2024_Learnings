@@ -66,8 +66,8 @@ function getBookingDetails() {
                         <td>${userBookingList.user_mobile}</td>
                         <td>${userBookingList.user_bus}</td>
                         <td>
-                            <button class="btn btn-danger" onclick='deleteBookings("${ele._id}")' > Delete </button>
-                            <button class="btn btn-info" editBusBooking(${JSON.stringify(ele)}) > Edit </button>
+                            <button className="btn btn-danger" onclick='deleteBookings("${ele._id}")' > Delete </button>
+                            <button className="btn btn-info" editBusBooking(${JSON.stringify(ele)}) > Edit </button>
                         </td>
                     </tr>
                     `;
