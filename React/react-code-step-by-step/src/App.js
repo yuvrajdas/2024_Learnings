@@ -21,6 +21,7 @@ import __1UseState from "./Hooks/__1UseState";
 import __2UseEffect from "./Hooks/__2UseEffect";
 import __3UseMemo from "./Hooks/__3UseMemo";
 import __4UseRef from "./Hooks/__4UseRef";
+import __5UseReducer from "./Hooks/__5UseReducer";
 import React,{useState} from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from './Router/Home';
@@ -81,6 +82,7 @@ function App() {
     {/* <__9ControlledComponent /> */}
     {/* <__10UncontrolledComponent /> */}
     <__11HOCcomponent />
+    <__5UseReducer />
     <BrowserRouter>
     <CompA />
   <NavBar />
