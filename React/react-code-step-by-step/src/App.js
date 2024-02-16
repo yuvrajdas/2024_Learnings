@@ -12,6 +12,7 @@ import __8RefInClassComp from "./Concepts/__8RefInClassComp";
 import __9ControlledComponent from "./Concepts/__9ControlledComponent";
 import __10UncontrolledComponent from "./Concepts/__10UncontrolledComponent";
 import __11HOCcomponent from "./Concepts/__11HOCcomponent";
+import __12ForwardRef from "./Concepts/__12ForwardRef";
 import __1ConstructorAndRender from "./LifeCycleMethods/__1ConstructorAndRender";
 import __2ComponentDidMount from "./LifeCycleMethods/__2ComponentDidMount";
 import __3ComponentDidUpdate from "./LifeCycleMethods/__3ComponentDidUpdate";
@@ -22,7 +23,7 @@ import __2UseEffect from "./Hooks/__2UseEffect";
 import __3UseMemo from "./Hooks/__3UseMemo";
 import __4UseRef from "./Hooks/__4UseRef";
 import __5UseReducer from "./Hooks/__5UseReducer";
-import React,{useState} from "react";
+import React,{useRef, useState} from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from './Router/Home';
 import Contact from './Router/Contact';
@@ -42,6 +43,7 @@ import ProtectedRoute from "./Router/ProtectedRoute";
 import CompA from "./ContextAPI/CompA";
 function App() {
   const [state, setState] = useState("")
+  const inputRef = useRef();
   function myFun(){
     alert("hi i am function")
   }
@@ -50,6 +52,11 @@ function App() {
     setState(childData);
 
   }
+  const changeChildRef = (inputRef) => {
+    if (inputRef.current) {
+      inputRef.current.focus()
+    }
+  };
   return (
    <>
     {/* <State />
@@ -83,7 +90,9 @@ function App() {
     {/* <__10UncontrolledComponent /> */}
     <__11HOCcomponent />
     <__5UseReducer />
-    <BrowserRouter>
+    <BrowserRouter> 
+    <__12ForwardRef ref={inputRef}  />
+    <button  onClick={changeChildRef}>Forward Ref Dispatcher</button>
     <CompA />
   <NavBar />
   <Routes>
