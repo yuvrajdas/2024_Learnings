@@ -9,8 +9,6 @@ public class __5NextGreaterElementToTheRight{
         Stack<Integer> stk = new Stack<>();
         stk.push(arr[arr.length-1]);
 
-        res[arr.length-1] = -1;
-
         for(int i=arr.length-2; i>=0; i--){
             if(stk.peek()>arr[i]){
                 res[i] = stk.peek();

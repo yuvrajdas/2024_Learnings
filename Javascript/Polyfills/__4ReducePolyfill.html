@@ -1,0 +1,18 @@
+<script>
+  let arr = [1, 2, 3, 4, 5];
+
+  Array.prototype.myReduce = function (cb, initialValue) {
+    let acc = initialValue !== undefined ? initialValue : this[0];
+
+    for (let i = initialValue !== undefined ? 0 : 1; i < this.length; i++) {
+      acc = cb(acc, this[i]);
+    }
+    return acc;
+  };
+
+  let res = arr.myReduce((acc, curr) => {
+    console.log(acc, curr);
+  }, 0);
+  
+  console.log(res);
+</script>
