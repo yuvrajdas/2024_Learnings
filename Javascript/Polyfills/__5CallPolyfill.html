@@ -1,0 +1,27 @@
+<script>
+  function common(val) {
+    console.log(this, val);
+  }
+
+  let obj = {
+    name: "Your name",
+    other: "Other value",
+  };
+
+  Function.prototype.myCall = function (obj, ...args) {
+    // if(typeof this != 'function'){
+    //     throw new Error("Not a callable function")
+    // }
+    
+    // obj.fn = this;
+    // obj.fn(...args)
+    let sym = Symbol();    
+    obj[sym] = this;
+    let res = obj[sym](...args)
+    delete obj[sym];
+    return res;
+   
+  };
+
+  common.myCall(obj, "a", "b", "c");
+</script>
