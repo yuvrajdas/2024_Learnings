@@ -5,7 +5,7 @@ function App() {
   const [formData, setFormData] = useState({
     fname: '',
     lname: '',
-    mobile: '',
+    mobile: 0,
     email: '',
   });
 
@@ -19,48 +19,57 @@ function App() {
     });
   };
 
-  const formValidatorHandler = (field)=>{
+  const formValidatorHandler = (field) => {
     setTouchedFields({
       ...touchedFields,
-      [field]:true
+      [field]: true
     })
   }
-  
-  const setErrorMessage = (field)=>{
-    if(field === 'fname'){
-      if(formData.fname === ''){
+
+  const setErrorMessage = (field) => {
+    if (field === 'fname') {
+      if (formData.fname === '') {
         return 'First name is required.'
       }
-      if(formData.fname.length<2){
+      if (formData.fname.length < 2 && isNaN(formData.fname)) {
         return 'First name must contain at least 2 characters.'
       }
-      if(!formData.fname.match(/^[A-Za-z'-]{2,}$/)){                              
+      if (!formData.fname.match(/^[A-Za-z'-]{2,}$/)) {
         return `Please enter a valid first name containing letters only.`
       }
     }
 
-    if(field === 'lname'){
-      if(formData.lname === ''){
+    if (field === 'lname') {
+      if (formData.lname === '') {
         return 'Lirst name is required.'
       }
-      if(formData.fname.length<2){
+      if (formData.fname.length < 2) {
         return 'Last name must contain at least 2 characters.'
       }
-      if(!formData.fname.match(/^[A-Za-z'-]{2,}$/)){
+      if (!formData.fname.match(/^[A-Za-z'-]{2,}$/)) {
         return `Please enter a valid Lirst name containing letters only.`
       }
     }
 
-    if(field === 'mobile'){
-      if(formData.mobile === ''){
-        return 'Mobile number is required.'
+    if (field === 'mobile') {
+      if (formData.mobile.toString().length === 0) {
+        return 'Mobile number is required.';
       }
-      if(formData.fname.length<10){
-        return 'Mobile number must be 10 digits'
+      if (isNaN(formData.mobile)) {
+        return 'Mobile number must be a number.';
       }
-      pa
-      if(!formData.mobile.match(/^\d{10}$/)){
-        return `Mobile number cannot contain alphabetic characters or special characters.`
+      if (formData.mobile.toString().length !== 10) {
+        return 'Mobile number must be a 10-digit number.';
+      }
+    }
+
+    if (field === 'email') {
+      if (formData.email === '') {
+        return 'Email is required.'
+      }
+
+      if (!/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(formData.email)) {
+        return 'Invalid email format.';
       }
     }
   }
@@ -82,11 +91,11 @@ function App() {
                 name="fname"
                 value={formData.fname}
                 onChange={handleInputs}
-                onBlur={() => formValidatorHandler('fname')}
+                onKeyUp={() => formValidatorHandler('fname')}
                 className="form-control shadow-none"
               />
               <div className="text-danger ms-2">
-                {touchedFields.fname ? setErrorMessage('fname'):''}
+                {touchedFields.fname ? setErrorMessage('fname') : ''}
               </div>
             </div>
             <div className="col-md-5 mb-3">
@@ -96,11 +105,11 @@ function App() {
                 name="lname"
                 value={formData.lname}
                 onChange={handleInputs}
-                onInput={() => formValidatorHandler('lname')}
+                onKeyUp={() => formValidatorHandler('lname')}
                 className="form-control shadow-none"
               />
               <div className="text-danger ms-2">
-                {touchedFields.lname ? setErrorMessage('lname'):''}
+                {touchedFields.lname ? setErrorMessage('lname') : ''}
               </div>
             </div>
             <div className="col-md-5 mb-3">
@@ -110,11 +119,11 @@ function App() {
                 name="email"
                 value={formData.email}
                 onChange={handleInputs}
-                onInput={() => formValidatorHandler('email')}
+                onKeyUp={() => formValidatorHandler('email')}
                 className="form-control shadow-none"
               />
               <div className="text-danger ms-2">
-                {touchedFields.email ? setErrorMessage('email'):''}
+                {touchedFields.email ? setErrorMessage('email') : ''}
               </div>
             </div>
             <div className="col-md-5 mb-3">
@@ -122,17 +131,17 @@ function App() {
                 type="text"
                 placeholder="Mobile"
                 name="mobile"
-                value={formData.mobile}
+                value={formData.mobile !== 0 ? formData.mobile : ''}
                 onChange={handleInputs}
-                onInput={() => formValidatorHandler('mobile')}
+                onKeyUp={() => formValidatorHandler('mobile')}
                 className="form-control shadow-none"
               />
               <div className="text-danger ms-2">
-                {touchedFields.mobile ? setErrorMessage('mobile'):''}
+                {touchedFields.mobile ? setErrorMessage('mobile') : ''}
               </div>
             </div>
             <div className='col-md-10 mb-3'>
-             <button type="submit" className="btn btn-primary">Submit</button>
+              <button type="submit" className="btn btn-primary">Submit</button>
             </div>
           </div>
         </form>
