@@ -10,14 +10,35 @@
 }
 
 .food-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px ;
     img{
         height: 100px;
     }
+    span{
+        cursor: pointer;
+        font-size: 32px;
+    }
+    .food-description{
+        padding: 10px;
+    }
+    .food-item__details{
+        display: flex;
+    }
+    .curr-item-count{
+        color: green;
+    }
 }
-
+hr{
+    width: 91%;
+    margin: auto;
+}
 .food-add-remove-wrapper{
-    width: 80px;
-    border: 1px solid red;
+    width: 150px;
+    border: 2px solid #4d1601;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
