@@ -8,3 +8,17 @@
     margin-top: 50px;
     margin-bottom: 20px;
 }
+
+.food-item{
+    img{
+        height: 100px;
+    }
+}
+
+.food-add-remove-wrapper{
+    width: 80px;
+    border: 1px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}

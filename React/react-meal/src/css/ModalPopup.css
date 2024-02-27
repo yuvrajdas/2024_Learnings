@@ -1,0 +1,28 @@
+
+.modal{
+    height: 400px;
+    width: 50%;
+    min-width: 600px;
+    position: relative;
+    top: 30%;
+    padding: 20px;
+    background-color: #ffffff;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+.cart-item-details{
+    height: 80%;
+}
+table{
+    width: 100% !important;
+    text-align: center;
+    tr{
+        border-bottom: 1px solid;
+    }
+}
+.modal-action-btns{
+    display: flex;
+    justify-content: end;
+    gap: 15px;
+}
