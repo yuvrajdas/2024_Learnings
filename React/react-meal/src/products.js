@@ -1,7 +1,7 @@
 export const products = [
     {
         foodId:"jiIj#@$C",
-        foodName:"Punjabi Spicy Chaap Tikka",
+        foodName:"Punjabi Chaap Tikka",
         imgLink:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/9dc8f6bab195faa319721d1756b02502",
         rating:4.2,
         price:300,
@@ -13,7 +13,7 @@ export const products = [
         imgLink:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/64128a7fd3cf96deb35de966534709ac",
         rating:3.2,
         price:550,
-        description:""
+        description:"Vegetarian chilli is packed with assorted vegetable dumplings tossed in a spicy mixture of flavourful sauces."
     },
     {
         foodId:"jiadf#@$2",

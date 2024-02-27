@@ -1,15 +1,17 @@
 import '../css/Header.css';
 import ModalPopup from '../view-components/ModalPopup';
-import { useState } from 'react';
-
-const Header = ()=>{
+import { useContext, useState } from 'react';
+import { DataContext } from '../App';
+const Header = () => {
     const [showModal, setShowModal] = useState(false)
-    return(<>
+    const { state: { totalQuantity } } = useContext(DataContext)
+    console.log(totalQuantity);
+    return (<>
         <header>
             <h1>ReactMeal</h1>
-            <button onClick={()=>setShowModal(true)}><img src="./icons/cart.svg" alt="Cart" /> <span>Your Cart</span> <span>6</span></button>
+            <button onClick={() => setShowModal(true)}><img src="./icons/cart.svg" alt="Cart" /> <span>Your Cart</span> <span>{totalQuantity}</span></button>
         </header>
-        <ModalPopup show={showModal} close={() => setShowModal(false)}/>
+        <ModalPopup show={showModal} close={() => setShowModal(false)} />
         <div className='header-banner'>
             <img src="./icons/meals.jpg" alt="" />
             <div className='summary-card'>
