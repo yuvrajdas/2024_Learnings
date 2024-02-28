@@ -15,7 +15,7 @@ const ProductCard = () => {
       <div className='product-cart-container'>
         <Scrollbars>
         {
-          allProducts.map((product) => {
+          allProducts && allProducts.map((product) => {
             return (<>
               <div className='food-item' key={product.foodId}>
                 <div className='food-item__details'>
@@ -28,12 +28,12 @@ const ProductCard = () => {
                 </div>
                 <div>
                   {
-                    item < 1 ?
+                    product.quantity < 1 ?
                       <Button btnText="ADD" width={150} actionType={() => AddToCart(product)} />
                       :
                       <div className='food-add-remove-wrapper'>
-                        <span onClick={() => setItem(item - 1)}>-</span>
-                        <strong className='curr-item-count'>{rowQuantity}</strong>
+                        <span onClick={() => AddToCart(product)}>-</span>
+                        <strong className='curr-item-count'>{product.quantity}</strong>
                         <span onClick={() => AddToCart(product)}>+</span>
                       </div>
                   }

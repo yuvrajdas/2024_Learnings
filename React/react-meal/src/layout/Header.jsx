@@ -4,14 +4,14 @@ import { useContext, useState } from 'react';
 import { DataContext } from '../App';
 const Header = () => {
     const [showModal, setShowModal] = useState(false)
-    const { state: { totalQuantity } } = useContext(DataContext)
+    const { state: { totalQuantity, myCart, totolAmount } } = useContext(DataContext)
     console.log(totalQuantity);
     return (<>
         <header>
             <h1>ReactMeal</h1>
             <button onClick={() => setShowModal(true)}><img src="./icons/cart.svg" alt="Cart" /> <span>Your Cart</span> <span>{totalQuantity}</span></button>
         </header>
-        <ModalPopup show={showModal} close={() => setShowModal(false)} />
+        <ModalPopup show={showModal} myCartDetails={{ myCart, totolAmount }} close={() => setShowModal(false)} />
         <div className='header-banner'>
             <img src="./icons/meals.jpg" alt="" />
             <div className='summary-card'>
