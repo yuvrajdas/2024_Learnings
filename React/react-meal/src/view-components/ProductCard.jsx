@@ -7,7 +7,7 @@ import { Scrollbars } from 'react-custom-scrollbars-2';
 import { DataContext } from '../App';
 
 const ProductCard = () => {
-  const {state:{allProducts, rowQuantity},  AddToCart} = useContext(DataContext);
+  const {state:{allProducts},  AddToCart, RemoveFromCart} = useContext(DataContext);
   const [item, setItem] = useState(0);
   
   return (
@@ -32,7 +32,7 @@ const ProductCard = () => {
                       <Button btnText="ADD" width={150} actionType={() => AddToCart(product)} />
                       :
                       <div className='food-add-remove-wrapper'>
-                        <span onClick={() => AddToCart(product)}>-</span>
+                        <span onClick={() => RemoveFromCart(product)}>-</span>
                         <strong className='curr-item-count'>{product.quantity}</strong>
                         <span onClick={() => AddToCart(product)}>+</span>
                       </div>
