@@ -30,9 +30,23 @@ function App() {
     })
   }
 
+  const RemoveFromCart = (item)=>{
+      return dispatch({
+        type:'REMOVE_FROM_CART',
+        payload:item
+      })
+  }
+
+  const DeleteAddedProductFromToCart = (item)=>{
+      return dispatch({
+        type:'MASTER_DELETE',
+        payload:item
+      })
+  }
+
   return (
     <>
-      <DataContext.Provider value={{ state, AddToCart }}>
+      <DataContext.Provider value={{ state, AddToCart, RemoveFromCart, DeleteAddedProductFromToCart }}>
         <Header />
         <ProductCard />
       </DataContext.Provider>

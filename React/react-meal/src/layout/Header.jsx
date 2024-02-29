@@ -5,7 +5,6 @@ import { DataContext } from '../App';
 const Header = () => {
     const [showModal, setShowModal] = useState(false)
     const { state: { totalQuantity, myCart, totolAmount } } = useContext(DataContext)
-    console.log(totalQuantity);
     return (<>
         <header>
             <h1>ReactMeal</h1>

@@ -20,6 +20,18 @@ table{
     tr{
         border-bottom: 1px solid;
     }
+    .delete{
+        img{
+           cursor: pointer;
+        border: 2px solid red;
+        padding: 5px;
+        border-radius: 15px;
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        -ms-border-radius: 15px;
+        -o-border-radius: 15px;
+}
+    }
 }
 .modal-action-btns{
     display: flex;
