@@ -1,5 +1,3 @@
-package DSA.Stack;
-
 import java.util.*;
 
 public class __3StackUsingQueue {

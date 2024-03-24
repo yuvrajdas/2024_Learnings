@@ -1,4 +1,3 @@
-package DSA.Stack;
 public class __2DynamicStackUsingArray {
     
     int tos;

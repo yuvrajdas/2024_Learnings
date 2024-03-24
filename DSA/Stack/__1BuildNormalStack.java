@@ -1,6 +1,3 @@
-package DSA.Stack;
-
-
 public class __1BuildNormalStack {
     
     int tos;
