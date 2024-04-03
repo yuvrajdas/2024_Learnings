@@ -1,11 +1,12 @@
 const express = require('express');
 const mysql = require('mysql');
-
+const cors = require('cors')
 const app = express();
 const port = 4000;
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors())
 
 
 // MySQL connection configuration
@@ -41,7 +42,7 @@ app.delete('/user/:id', (req, res)=>{
                 console.error(error);
                 return res.status(500).send({ error: 'An error occurred while deleting the user.' });
             }
-            return res.status(200).send({ data: result });
+            return res.status(200).send({ data: 'Record Deleted successfully...' });
         }
     )
 })
