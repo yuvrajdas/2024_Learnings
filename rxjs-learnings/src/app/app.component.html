@@ -1,0 +1,9 @@
+<div style="width: 100%; display: flex; justify-content: center; flex-direction: column; align-items: center;">
+    <h3>Hello RxJS</h3>
+    <select (change)="selectTopic($event)">
+        <option *ngFor="let topic of topics" value={{topic}}>{{topic}}</option>
+    </select>
+    <main style="margin-top: 20px;">
+       <router-outlet></router-outlet>
+    </main>
+</div>
