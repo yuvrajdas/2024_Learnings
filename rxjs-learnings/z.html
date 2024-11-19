@@ -1,0 +1,130 @@
+<script>
+    /**
+     * Creating Observable Pattern (Pub-sub library)
+    */
+
+    class ObservableGuard {
+
+        constructor(observable) {
+            this.observalbe = observable
+            this.isUnsubscribe = false;
+        }
+
+        // if the observer is unsubscribed or next method is not provided by the observer then return it. Don't call the next method.
+        next(data) {
+            if (this.isUnsubscribe || !this.observalbe.next) {
+                this.unsubscribe();
+                return;
+            }
+
+            try {
+                this.observalbe.next(data);
+
+            } catch (err) {
+                this.unsubscribe();
+                throw err;
+            }
+        }
+
+        // if the error occures or error method not provided by observer then handle the error and stop the execution further process. 
+        error(err) {
+            if (this.isUnsubscribe || !this.observalbe.error) {
+                this.unsubscribe();
+                return;
+            }
+
+            try {
+                this.observalbe.error(err)
+            } catch (error) {
+                this.unsubscribe();
+                throw error
+            }
+            this.unsubscribe();
+        }
+
+        complete() {
+
+            if (this.isUnsubscribe || !this.observalbe.complete) {
+                this.unsubscribe();
+                return;
+            }
+
+            try {
+                this.observalbe.complete();
+            } catch (error) {
+                this.unsubscribe();
+                throw error
+            }
+            this.unsubscribe();
+        }
+
+        unsubscribe() {
+            this.isUnsubscribe = true;
+            if (this.closeFun) {
+                this.closeFun();
+            }
+        }
+
+        get closed() {
+            return this.isUnsubscribe;
+        }
+    }
+
+    class Observable {
+
+        constructor(blueprint) {
+            this.observable = blueprint;
+        }
+
+        subscriber(observer) {
+            let guardedObserver = new ObservableGuard(observer);
+            let closeFun = this.observable(guardedObserver);
+
+            // attaching close function in ObservableGuard object
+            guardedObserver.closeFun = closeFun;
+
+            let subscription = this.subscriptionMetaData(guardedObserver);
+            return subscription;
+        }
+
+        subscriptionMetaData(observableWithGuard) {
+            return {
+                unsubscribe() {
+                    observableWithGuard.unsubscribe();
+                },
+                closed() {
+                    return observableWithGuard.closed;
+                }
+            }
+        }
+
+    }
+
+    // Creating factory/producer
+    const obs = new Observable(function (observer) {
+        let count = 1;
+
+        let producer = setInterval(() => {
+            observer.next(count++)
+        }, 1000)
+
+        return () => {
+            clearInterval(producer);
+        }
+
+    })
+
+    let subs = obs.subscriber({
+        next: (val) => console.log(val),
+        error: (err) => console.log(err)
+
+    })
+
+
+    console.log(subs.closed());
+    setTimeout(() => {
+        subs.unsubscribe();
+        console.log(subs.closed());
+    }, 5000);
+
+</script>

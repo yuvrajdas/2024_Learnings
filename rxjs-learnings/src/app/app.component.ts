@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   
-  topics:Array<string> = ['Of Operator', 'From Operator', 'fromEvent']
+  topics:Array<string> = ['Pub-Sub-Library','Of Operator', 'From Operator', 'fromEvent']
   
   constructor(private route : Router){}
 
