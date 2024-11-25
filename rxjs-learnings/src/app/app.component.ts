@@ -8,13 +8,12 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   
-  topics:Array<string> = ['Pub-Sub-Library','Of Operator', 'From Operator', 'fromEvent']
+  topics:Array<string> = ['Pub-Sub-Library','Of Operator', 'From Operator', 'fromEvent', 'individual-functionality']
   
   constructor(private route : Router){}
 
 
   selectTopic(event:any){
-    console.log(event.target.value.replace(" ", "_"));
     this.route.navigate([`${event.target.value.replace(" ", "_")}`])
   }
 }

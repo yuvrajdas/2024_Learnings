@@ -4,6 +4,7 @@ import { OfOperatorComponent } from './of-operator/of-operator.component';
 import { FromOperatorComponent } from './from-operator/from-operator.component';
 import { FromEventComponent } from './from-event/from-event.component';
 import { PubSubLibraryComponent } from './pub-sub-library/pub-sub-library.component';
+import { IndividualFunctionalityComponent } from './individual-functionality/individual-functionality.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path:'Pub-Sub-Library',
     component:PubSubLibraryComponent
+  },
+  {
+    path:'individual-functionality',
+    component:IndividualFunctionalityComponent
   }
 ];
 
