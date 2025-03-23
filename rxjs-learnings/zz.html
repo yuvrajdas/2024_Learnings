@@ -1,0 +1,121 @@
+<script>
+
+    class ObservableGuard{
+
+        constructor(blueprint){
+            this.observable = blueprint;
+            this.isUnsubscribe = false;
+        }
+
+        next(data){
+            if(this.isUnsubscribe || !this.observable.next){
+                this.unsubscribe();
+                return;
+            }
+
+            try{
+                this.observable.next(data)
+            }catch(err){
+                this.unsubscribe();
+                throw err
+            }
+
+            this.unsubscribe();
+        }
+
+        error(err){
+            if(this.isUnsubscribe || !this.observable.error){
+                this.unsubscribe();
+                return;
+            }
+            
+            try {
+                this.observable.error(err);
+            } catch (error) {
+                this.unsubscribe();
+                throw error;
+            }
+            this.unsubscribe();
+        }
+
+        complete(){
+            if(this.isUnsubscribe || !this.observable.complete){
+                this.unsubscribe();
+                return;
+            }
+
+            try {
+                this.observable.complete();
+            } catch (error) {
+                this.unsubscribe();
+                throw error;
+            }
+
+            this.unsubscribe();
+        }
+
+        unsubscribe(){
+            this.isUnsubscribe = true;
+            if(this.closeFun){
+                this.closeFun()
+            }
+        }
+
+        closed(){
+            return this.isUnsubscribe;
+        }
+
+
+    }
+
+    class Observable {
+        constructor(blueprint) {
+            this.observable = blueprint;
+        }
+
+        subscribe(observer) {
+            let observerWithGuard = new ObservableGuard(observer);
+            let closeFun = this.observable(observerWithGuard)
+            observerWithGuard.closeFun = closeFun;
+            return this.subscriptionMetaData(observerWithGuard);
+           
+        }
+
+        subscriptionMetaData(subscription){
+            return {
+                unsubscribe(){
+                    subscription.unsubscribe();
+                },
+                get closed(){
+                    return subscription.closed();
+                }
+            }
+        }
+    }
+
+    const obs = new Observable((observer) => {
+        let count = 1;
+
+        observer.error('error');
+        let producer = setInterval(() => {
+            observer.next(count++);
+        }, 1000)
+
+        return () => {
+            console.log("cleared");
+            
+            clearInterval(producer);
+        }
+    })
+
+
+    let unsub = obs.subscribe({
+        next: (val) => console.log(val),
+        error: (err) => console.log(err),
+        complete: () => console.log('Completed.')
+
+    })
+
+    console.log(unsub.closed);
+    
+</script>
