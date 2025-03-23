@@ -1,0 +1,23 @@
+<script>
+
+        /**
+         * Error Handling : Javascript provides several mechanism for error handling
+         * 
+         * 1. Try catch
+         * 2. Try catch with async await (if process is ansycronous)
+         * 3. .catch() 
+         * 4. throw new Error() for custom error
+         * 5. window.onerror() global error handing
+         * 
+         * */ 
+ 
+         window.onerror = function (message, source, lineno, colno, error) {
+            console.error("Global Error Caught:", message);
+            console.log(`Source: ${source}`);
+            console.log(`Line: ${lineno}, Column: ${colno}`);
+            console.log("Error Object:", error);
+        };
+
+ 
+
+</script>

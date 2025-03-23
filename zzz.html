@@ -286,7 +286,20 @@
     //         })
     //  
     
-     
+    async function asyncTest() {
+        return new Promise(async (resolve) => {
+            resolve("success");
+        });
+    }
+
+    async function main(){
+
+        let ares = await asyncTest();
+        console.log(ares);
+    }
+
+    main();
+    
 
     </script>
 </body>

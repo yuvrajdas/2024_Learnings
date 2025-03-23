@@ -1,0 +1,23 @@
+<script>
+    
+    class HelloThis{
+        constructor(){
+            console.log(this);
+            
+        }
+    }
+
+    const af = ()=>{
+        console.log(this);
+        
+    }
+
+    function tf(){
+        console.log(this);
+        
+    }
+
+    af();
+    tf();
+    new HelloThis();
+</script>
