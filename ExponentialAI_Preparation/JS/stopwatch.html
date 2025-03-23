@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .displayTimer {
+            text-align: center;
+            margin-top: 20px;
+        }
+        #timer {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        button {
+            margin: 0 5px;
+            padding: 10px 15px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="displayTimer">
+        <div id="timer">00:00:00:00</div>
+        <button id="stop">Stop</button>
+        <button id="start">Start</button>
+        <button id="reset">Reset</button>
+    </div>
+
+    <script>
+        let stopBtn = document.getElementById('stop');
+        let startBtn = document.getElementById('start');
+        let resetBtn = document.getElementById('reset');
+        let timerDisplay = document.getElementById('timer'); // Correct ID selection
+        let timerId = null;
+        let miliSecond = 0, second = 0, min = 0, hour = 0;
+        
+        startBtn.addEventListener('click', ()=>{
+            if(timerId !== null){
+                clearInterval(timerId);
+            }
+
+            timerId = setInterval(startTimer, 10)
+        })
+
+        stopBtn.addEventListener('click', ()=>{
+            clearInterval(timerId);
+        })
+
+        resetBtn.addEventListener('click', ()=>{
+            clearInterval(timerId);
+            miliSecond = 0, second = 0, min = 0, hour = 0;
+            timerDisplay.innerHTML = '00:00:00:00'
+        })
+
+        function startTimer(){
+            miliSecond++;
+
+            if(miliSecond == 100){
+                second++;
+                miliSecond = 0;
+            }
+
+            if(second == 60){
+                min++;
+                second = 0;
+                miliSecond = 0;
+            }
+
+            if(min == 60){
+                hour++;
+                min = 0;
+                second = 0;
+                miliSecond = 0;
+            }
+
+            updateTimer();
+        }
+
+        function updateTimer(){
+            let h = hour<10 ? `0${hour}` : hour;
+            let m = min < 10 ? `0${min}` : min;
+            let s = second < 10 ? `0${second}` : second;
+            let ms = miliSecond < 10 ? `0${miliSecond}` : miliSecond;
+
+            timerDisplay.innerHTML = `${h}:${m}:${s}:${ms}`;
+        }
+    </script>
+</body>
+</html>

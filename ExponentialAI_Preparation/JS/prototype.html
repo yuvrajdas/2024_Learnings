@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <script>
+            function bankAccount(name, amount) {
+                
+                this.accountNo = Date.now()
+                this.accountname = name
+                this.accountBalance =  amount
+ 
+            }
+
+            bankAccount.prototype.deposite = function (amount) {
+                this.accountBalance += amount
+            }
+
+            bankAccount.prototype.withdraw = function (amount) {
+                this.accountBalance -= amount;
+            }
+
+            const arunAC = new bankAccount('Arun', 1000);
+            const nehaAC = new bankAccount('Neha', 1000);
+ 
+            console.log(nehaAC);
+            nehaAC.deposite(5000);
+            console.log(nehaAC);
+        </script>
+    </body>
+
+</html>

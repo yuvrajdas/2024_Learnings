@@ -1,0 +1,31 @@
+<div style="text-align: center;">
+  <div>{{ time }}</div>
+  <h3>User Table</h3>
+  <input type="text" (input)="searchRecords($event)"><br> <br>
+  <div style="height: 500px; width: 80%; margin: auto; overflow-y: auto;">
+    <table border="1px" style="width: 100%;">
+      <thead>
+        <tr>
+          <th style="position: sticky; top: 0; background: yellowgreen;">Sno.</th>
+          <th style="position: sticky; top: 0;  background: yellowgreen;">Title</th>
+          <th style="position: sticky; top: 0;  background: yellowgreen;">Body</th>
+          <th style="position: sticky; top: 0;  background: yellowgreen;">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of filteredUserData">
+          <td>{{user.id}}</td>
+          <td>{{user.title}}</td>
+          <td>{{user.body}}</td>
+          <td><button (click)="editUser(user)">E</button><button (click)="deletetUser(user)">D</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <select (change)="selectPageSize($event)">
+    <option *ngFor="let item of [3,5, 10, 20, 50, 100]" [value]="item">{{item}}</option>
+  </select>
+  <button (click)="goToPreviousPage()">Prev</button>
+  <button (click)="goToNextPage()">Next</button>
+</div>
+

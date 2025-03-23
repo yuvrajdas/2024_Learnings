@@ -1,0 +1,31 @@
+<script>
+
+    class Car{
+        constructor(){
+          
+        }
+
+        car(){
+            console.log("start with key");
+            
+        }
+    }
+
+    class BMW extends Car{
+
+        feature(){
+            console.log('auto drive');
+        }
+    }
+
+    class XUV extends Car{
+        feature(){
+            console.log('no autodrive');
+            
+        }
+    }
+
+
+    let bmw = new BMW();
+    bmw.car();
+</script>

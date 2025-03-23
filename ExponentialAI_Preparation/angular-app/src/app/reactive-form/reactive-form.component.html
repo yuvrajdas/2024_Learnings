@@ -1,0 +1,27 @@
+<h1>Reactive Form</h1>
+<form [formGroup]="userForm">
+  <input type="text" formControlName="username">
+  <span *ngIf="userForm.controls['username'].invalid && userForm.controls['username'].touched">
+    <span *ngIf="userForm.controls['username']?.errors?.['required']">Username field is required.</span>
+    <span *ngIf="userForm.controls['username']?.errors?.['pattern']">Username contains only alphabatical characters.</span>
+  </span>
+  <br><br>
+
+  <input type="email" formControlName="email">
+  <!-- <span *ngIf="userForm.controls['email'].invalid && userForm.controls['email'].touched">
+     -->
+    <span *ngIf="userForm.controls['email'].invalid && userForm.controls['email'].touched">
+     <span *ngIf="userForm.controls['email']?.errors?.['required']">Email field is required.</span>
+    <span *ngIf="userForm.controls['email']?.errors?.['email']">Please enter valid email.</span>
+  </span>
+  <br><br>
+
+  <input type="password" formControlName="password">
+  <span *ngIf="userForm.controls['password'].invalid && userForm.controls['password'].touched">
+    <span *ngIf="userForm.controls['password']?.errors?.['required']">Password field is required.</span>
+    <span *ngIf="userForm.controls['password']?.errors?.['minlength']">Password should be minimum 8 characters.</span>
+  </span>
+  <br><br>
+
+  <button [disabled]="userForm.invalid" (click)="submitForm()">Submit</button>
+</form>

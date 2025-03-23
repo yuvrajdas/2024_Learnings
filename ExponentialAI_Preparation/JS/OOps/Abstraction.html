@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Abstraction</title>
+    </head>
+
+    <body>
+
+        <script>
+            class Car{
+
+                constructor(carName){
+                    this.car_name = carName;
+                    this.speed = 0;
+                }
+
+                startCar(){
+                    this.#checkFuel()
+                    this.#ignitionEngine();
+                    console.log(`${this.car_name} has been started`);
+                    
+                }
+
+                #checkFuel(){
+                    console.log('checking fuel level...');
+                }
+
+                #ignitionEngine(){
+                    console.log('igniting engine...');
+                }
+
+                accelerate(){
+                    console.log(`Car is running on speed ${this.speed} km/h`);
+                }
+
+            }
+
+            const kia = new Car('KIA');
+            kia.startCar();
+        
+        </script>
+    </body>
+
+</html>

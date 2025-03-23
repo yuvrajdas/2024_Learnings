@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,6 +50,16 @@
         <script>
             let div = document.getElementsByTagName("div")[0]
             console.log(div);
+
+            // Add an event listener to the div for event delegation
+            div.addEventListener("click", (event) => {
+                // Check if the clicked element is the button
+                if (event.target.tagName === "BUTTON") {
+                    console.log("Button clicked!");
+                    alert("Button clicked!");   
+                }
+            });
         </script>
     </body>
+
 </html>

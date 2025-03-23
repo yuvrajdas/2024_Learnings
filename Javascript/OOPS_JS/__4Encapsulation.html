@@ -1,0 +1,27 @@
+<script>
+    class SavignAccount{
+
+        name;
+        #amount;
+        constructor(name, amount){
+            this.name = name;
+            this.#amount = amount
+        }
+
+        get getAmout(){
+            return this.#amount;
+        }
+
+        set setAmout(amount){
+            this.#amount = amount;
+        }
+    }
+
+
+    let raounak = new SavignAccount('Raounak', 1000);
+    raounak.setAmout = 2000;
+    console.log(raounak);
+    
+     
+
+</script>

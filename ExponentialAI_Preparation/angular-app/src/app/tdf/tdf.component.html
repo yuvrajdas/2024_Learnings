@@ -1,0 +1,24 @@
+<h1> {{title | name }} </h1>
+<form #userForm="ngForm" (ngSubmit)="submitFrom(userForm.value)">
+  <input type="text" name="username" [(ngModel)]="user.username" required pattern="^[A-Za-z]+$" />
+  <span *ngIf="userForm.controls['username']?.invalid && userForm.controls['username']?.touched">
+    <span *ngIf="userForm.controls['username']?.errors?.['required']">Username field is required.</span>
+    <span *ngIf="userForm.controls['username']?.errors?.['pattern']">Username contains only alphabets characters.</span>
+  </span>
+  <br><br>
+
+  <input type="email" name="email" [(ngModel)]="user.email" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+  <span *ngIf="userForm.controls['email']?.invalid && userForm.controls['email']?.touched">
+    <span *ngIf="userForm.controls['email']?.errors?.['required']">Email field is required</span>
+    <span *ngIf="userForm.controls['email']?.errors?.['pattern']">Please enter valid email</span>
+  </span>
+  <br><br>
+
+  <input type="password" name="password" [(ngModel)]="user.password" required minlength="8">
+  <span *ngIf="userForm.controls['password']?.invalid && userForm.controls['password']?.touched">
+    <span *ngIf="userForm.controls['password']?.errors?.['required']">Password field is required</span>
+    <span *ngIf="userForm.controls['password']?.errors?.['minlength']">Password should be minimum 8 characters</span>
+  </span>
+  <br><br>
+  <button [disabled]="userForm.invalid">Submit</button>
+</form>

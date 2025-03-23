@@ -4,7 +4,7 @@
   Array.prototype.myReduce = function (cb, initialValue) {
     let acc = initialValue !== undefined ? initialValue : this[0];
 
-    for (let i = initialValue !== undefined ? 0 : 1; i < this.length; i++) {
+    for (let i = initialValue == undefined ? 1 : 0; i < this.length; i++) {
       acc = cb(acc, this[i]);
     }
     return acc;

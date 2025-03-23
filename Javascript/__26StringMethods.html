@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Methods</title>
+</head>
+<body>
+    <script>
+        let str = "helloThisIsYuvraj";
+        // let strArr =  str.split('')
+        // str.concat('hello')
+        // console.log(strArr);
+        function isUpperCase(ch){
+            if(ch == ch.toUpperCase()){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        function modi(str){
+            let ans = ""
+            for(const ch of str){
+                let res = isUpperCase(ch)
+                // console.log(ch, res);
+                if(res){
+                    ans+="_"+ch
+                }else{
+                    ans+=ch;
+                }
+            }
+
+            console.log(ans);
+            
+        }
+
+        modi(str);
+        let a  =10;
+        a = 15;
+        
+    </script>
+</body>
+</html>

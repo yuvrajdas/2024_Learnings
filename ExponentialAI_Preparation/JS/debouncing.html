@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" oninput="betterFunction(event)">
+
+
+    <script>
+
+        function getData(event){
+            console.log(event.target.value);
+            
+        }
+
+        function debouce(fun, delay){
+
+            let timer;
+
+            return function(...args){
+                clearTimeout(timer);
+
+                timer = setTimeout(()=>{
+                    fun.call(this, ...args);
+                },delay)
+            }
+
+        }
+        const betterFunction = debouce(getData, 3000)
+    </script>
+</body>
+</html>

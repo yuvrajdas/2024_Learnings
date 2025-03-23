@@ -1,0 +1,49 @@
+<script>
+    /*  Promise is object in javascript used to perform asyncronous task in Javascript
+    It has Three state 
+    1. Pending
+    2. Resolve 
+    3. Reject
+*/
+
+
+
+    let promise1 = new Promise((res, rej) => {
+
+        setTimeout(() => {
+           res('Success 1')
+        }, 1000)
+
+    })
+
+    let promise2 = new Promise((res, rej) => {
+
+        setTimeout(() => {
+           res('Success 2')
+        }, 2000)
+
+    })
+
+    let promise3 = new Promise((res, rej) => {
+
+        setTimeout(() => {
+           res('Success 3')
+        }, 3000)
+
+    })
+
+    Promise.all([promise1, promise2, promise3]).then((re) => {
+        console.log(re);
+
+    })
+
+    console.log("Start");
+    new Promise(()=>{
+        console.log("microtask");
+        
+    })
+    
+    console.log("end");
+
+    
+</script>

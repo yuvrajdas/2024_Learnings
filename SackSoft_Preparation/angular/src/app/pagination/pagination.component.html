@@ -1,0 +1,29 @@
+<h1>child component</h1>
+<div style="height:70vh; width: 600px; margin: auto;  overflow-y: auto; ">
+  <table *ngIf="dataToBeRendered.length">
+    <thead>
+      <tr>
+        <th>Sno.</th>
+        <th>Title</th>
+        <th>Body</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of dataToBeRendered">
+        <td>{{user.id}}</td>
+        <td>{{user.title}}</td>
+        <td>{{user.body}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+<select (change)="changePageSize($event)">
+  <option value="10">10</option>
+  <option value="20">20</option>
+  <option value="50">50</option>
+  <option value="100">100</option>
+  <option value="1000">1000</option>
+</select>
+<button (click)="nextPage()">Next </button>
+<button (click)="prevPage()">Prev </button>

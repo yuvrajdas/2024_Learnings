@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+    <div style="height: 100; width: 100; background-color: red;">
+        <span>
+            <button>click me</button>
+        </span>
+    </div>
+
+    <input type="text" oninput="getDataBetterFun(event)">
+   
+    <script>
+        
+        function getData(event){
+            console.log("event", event.target.value);
+        }
+
+        function debounce(fun, delay){
+            let timer;
+
+            return function(...args){
+                clearInterval(timer);
+
+                timer = setTimeout(()=>{
+                    fun.call(this, ...args);
+                },delay)
+            }
+        }
+       
+
+       const getDataBetterFun = debounce(getData, 1000);
+
+
+        console.log("-----------------------------------------------------");
+        let div = document.getElementsByTagName('div')[0]
+
+        div.addEventListener('click', (event)=>{
+            console.log(event.target.tagName);
+            
+            if(event.target.tagName === 'BUTTON'){
+                alert('buttom')
+            }
+        })
+        // console.log(x);
+        // hello();
+        // var x = 10;
+        // function hello(){
+        //     console.log("asdhi");
+            
+        //     let y = 20;
+        //     function hiFun(){
+        //         console.log("hi fun", y);
+        //     }
+        //     hiFun();
+        // }
+
+        // accessibility of funtions and variables within a block 
+ 
+        let students = [
+        {name:"Pravin", class:12, subject:"maths"},
+        {name:"Vinay", class:12, subject:"maths"},
+        {name:"Yonitha", class:12, subject:"Bio"},
+        {name:"Meera", class:12, subject:"Arts"}
+    ]
+
+    // let res = students.forEach((ele, idx, arr)=>{
+    //     if(ele.name == 'Meera'){
+    //         // console.log(ele);
+    //         return ele;
+    //     }
+    // })
+    // console.log(res);
+        
+    // let res = students.map((ele, idx)=>{
+    //     if(ele.name == 'Meera'){
+    //         return ele
+    //     }
+    // })
+    // console.log(res);
+
+    // let res = students.reduce((curr, acc)=>{
+    //     if(curr.name == 'Meera'){
+    //         acc.push(ele);
+    //     }
+
+    //     return acc;
+    // },[])
+    
+    // console.log(res);
+
+    function fullName(args){
+        console.log(this.firtName, this.lastName, args);
+    }
+
+    let obj = {
+        firtName: "Vinay",
+        lastName: "Soni",
+        city: "Mumbai",
+    }
+
+    let obj2 = {
+        firtName: "Pooja",
+        lastName: "Singh",
+        city: "Mumbai",
+    }
+
+    // let res = fullName.bind(obj, [1,2,3,4,5])
+    // res();
+
+
+    async function myData() {
+        let res = await new Promise(resolve => {
+            setTimeout(() => {
+                resolve(10); // Resolve the promise after 5 seconds
+            }, 5000);
+        });
+
+        console.log("resr"); // This will now wait 5 seconds before executing
+        console.log(res); // Output: 
+    }
+
+    myData();
+
+
+    /**
+     * type of object
+     * 1. User define object
+     * 2. Native Object: Set, Map, Date, etc
+     * 3. Host Object : widnow, navigator
+     * 4. Document : document
+     * 
+     * Object literal, Contructor, Factory Function, 
+     * 
+    */
+
+    function Mobile(){
+        return {
+            model:"",
+            price:""
+        }
+    }
+
+    let moto = Mobile();
+    moto.model = 'MOTOG'
+
+
+    // contructor function
+    function Food(){
+        this.foodname = ""
+    }
+
+    let zunk = new Food();
+    zunk.foodname = ""
+
+
+    function Student(stuName, className){
+        this.name = stuName;
+        this.class = className
+    }
+    Student.prototype.college = "CCEM"
+    let sonam = new Student('Sonam', 12);
+
+    console.log("sonam", sonam);
+   
+    console.log("---------------------------------------------------");
+
+    let arr = [1, 2, 3, 4, 5];
+
+    // Array.prototype.myForEach = function(cb){
+    //     for(let i=0; i<this.length; i++){
+    //         cb(this[i], i, this);
+    //     }
+    // }
+
+    // arr.myForEach((ele, idx, arr)=>{
+    //     console.log(ele, idx, arr);
+        
+    // })
+
+    // arr.myMap((ele)=>{
+    //     if(ele>2){
+    //         return ele;
+    //     }
+    // })
+
+    // Array.prototype.myMap = function(cb){
+    //     let res = [];
+
+    //     for(let i=0; i<this.length; i++){
+    //         res.push(cb(this[i], i, this));
+    //     }
+
+    //     return res;
+    // } 
+
+
+    Array.prototype.myReduce = function(cb, initialVal){
+        let acc = initialVal !== undefined ? initialVal : thisb[0];
+
+        for(let i = initialVal == undefined ? 1 : 0; i<this.length; i++){
+            acc = cb(acc, this[i]);
+        }
+
+        return acc;
+    }
+
+    let res = arr.myReduce((acc, curr)=>{
+        console.log(acc, curr);
+        return;
+        
+    },0)
+
+    console.log(res);
+    
+     
+
+    </script>
+</body>
+</html>

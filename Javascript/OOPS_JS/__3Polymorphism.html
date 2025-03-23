@@ -1,0 +1,25 @@
+<script>
+ 
+    class Vehicle{
+        start(){
+            console.log("start with key, or kick");
+        }
+    }
+    class Car extends Vehicle{
+        start(){
+            console.log("start with key");
+        }
+    }
+
+    class Bike extends Vehicle{
+        start(){
+            console.log('start with kick');
+            
+        }
+    }
+
+    let b = new Bike()
+
+    console.log(b.start());
+    
+</script>

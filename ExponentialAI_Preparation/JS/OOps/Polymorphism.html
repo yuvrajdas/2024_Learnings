@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Polymorphism</title>
+    </head>
+
+    <body>
+        <!-- Polymorphism : Difference forms of data -->
+
+        <script>
+            // class Animal {
+            //     speak() {
+            //         console.log("Animals have different sounds...!");
+            //     }
+            // }
+
+            // class Cat extends Animal {
+            //     speak() {
+            //         console.log('cat says meow meow...');
+            //     }
+            // }
+
+            // class Dog extends Animal{
+
+            //     speak(){
+            //         console.log('dog says bow bow...');
+            //     }
+            // }
+
+            // const dog = new Dog();
+            // dog.speak();
+
+            function chooseSubject(sub1) {
+                console.log(`Teacher name :- ${sub1} `);
+            }
+
+            let teacher1 = {
+                firstName: "Rohit",
+                lastName: "Patel"
+            }
+            let res = chooseSubject.bind(teacher1, "Hindi")
+            
+            console.log(res());
+            
+        </script>
+    </body>
+
+</html>

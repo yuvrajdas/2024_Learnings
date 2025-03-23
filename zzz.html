@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body  >
+    <!-- <div  >
+        <button  >click</button>
+    </div>
+     -->
+    
+     <!-- <input type="text" oninput="betterFun(event)"> -->
+        <button onclick="fire()">fire</button>
+  <script>
+
+
+        // let arr = [1,2,3,4,5];
+        // let res = arr.slice(0,4);
+        // console.log(res);
+        // console.log(arr);
+
+        let arr = [true, true, true, false];
+
+        let res = arr.every(ele=>ele)
+        console.log(res);
+        
+        // arr.push(10)
+        // console.log(arr);
+        // arr.pop();
+        // console.log(arr);
+        // arr.shift()
+        // console.log(arr);
+
+        // function fireExecute(ev){
+        //     console.log(ev);
+        // }
+
+        // let isAwait = false;
+
+        // function fire(){
+        //     if(!isAwait){
+        //         fireExecute.call(this, 'fired');
+        //         isAwait = true;   
+                
+        //         setInterval(() => {
+        //             isAwait = false;
+        //         }, 2000);
+        //     }
+        // }
+
+
+
+        //     function getData(ev){
+        //         console.log(ev.target.value);
+                
+        //     }
+
+        //     function debouce(fun, delay){
+        //         let timer
+        //         return function(...args){
+        //             clearTimeout(timer)
+
+        //             timer = setTimeout(()=>{
+        //                 fun.call(this, ...args)
+        //             }, delay)
+        //         }
+        //     }
+
+        // const betterFun = debouce(getData, 1000);
+
+        // function getData(eve){
+        //     console.log(eve.target.value);
+            
+        // }
+
+        // function debounce(fun, delay){
+
+        //     let timer;
+
+        //     return function(...args){
+        //         clearInterval(timer)
+                
+        //         timer = setTimeout(()=>{
+        //             console.log(args);
+                    
+        //             fun.call(this, ...args);
+        //         },delay)   
+        //     }
+        // }
+
+        // let betterFun = debounce(getData, 1000);
+        // function Student(name, branch, college){
+        //     this.name = name;
+        //     this.branch = branch;
+          
+        // }
+
+        // let rohan = new Student('rohan', 'cse');
+        // let rohit = new Student('rohit', 'IT');
+        // let rajesh = new Student('rajesh', 'IT');
+
+        // Student.prototype.college = 'ccem'
+        // console.log(rohan.college);
+        
+        // let obj = {}
+        // console.log(obj);
+        
+        // let obj = {
+        //     name:'yuvraj'
+        // }
+
+        // // let person  = {...obj};
+        // let person  = Object.assign({}, obj)
+
+        // person.name = 'Das';
+
+        // console.log(obj);
+        
+
+        // let student = {
+        //     name:"Radha",
+        //     marks:{
+        //         maths:78,
+        //         physics:52,
+        //         english:75
+        //     },
+        //     class:12
+        // }
+
+        // let copiedStu = {...student}
+        // copiedStu.marks.maths = 100
+        // console.log(student);
+    
+
+        // function Mobile(){
+        //     this.model = 55
+        //     this.name = "Nokia"
+        // }
+
+        // let nm = new Mobile();
+        // console.log(nm);
+        
+        // let res = [1,2,3,4,5,6].join();
+        // console.log(res);
+        
+        /**
+         * combination of key:value pair data
+         * 1. user define object
+         * 2. Native object eg Map, Set, Array
+         * 3. Host object : window, navigator
+         * 4. document object
+         *
+         * using 
+         * 1. object literal
+         * 2. Object constructor method
+         * 3. factory functoin
+         * 
+         *  
+        */
+
+
+        // let bodyEle = document.getElementsByTagName('div')[0]
+        // console.log(bodyEle);
+        
+        // bodyEle.addEventListener('click', (ev)=>{
+            
+        //     if(ev.target.tagName == 'BUTTON'){
+        //         console.log(ev.target);
+                
+        //     }
+            
+        // })
+
+        // function x(){
+        //     let a = 10;
+    
+        //     function y(){
+        //         return a;
+        //     }
+    
+        //     return y;
+        // }
+        // let fun = x();
+        // console.log(fun());
+    
+        // let material = [
+        //     { category: "Electronics", quantity: 2, price: 200, product: "Laptop" },
+        //     { category: "Home Appliances", quantity: 7, price: 129, product: "Toaster" },
+        //     { category: "Clothing", quantity: 2, price: 200, product: "T-Shirt" },
+        //     { category: "Books", quantity: 2, price: 12, product: "Novel" },
+        //     { category: "Sports Equipment", quantity: 3, price: 34, product: "Tennis Racket" }
+        // ];  
+    
+    
+        // let res = material.map((ele)=>{
+        //     ele['category'] = 'Yuvraj'
+        //     return ele;
+        // })
+    
+        // console.log(res);
+        
+        
+        // function fullName(prof){
+        //     console.log(this.firtName+" "+this.lastName+ " "+prof);
+        // }
+    
+        // let obj = {
+        //     firtName: "Vinay",
+        //     lastName: "Soni",
+        //     city: "Mumbai",
+        // }
+    
+        // let obj2 = {
+        //     firtName: "Pooja",
+        //     lastName: "Singh",
+        //     city: "Mumbai",
+        // }
+    
+        // // fullName.call(obj, "Yuvraj")
+        // // fullName.apply(obj, [1,2,3,4])
+        // let copy = fullName.bind(obj, [1,2,3,4])
+        // copy();
+    
+    
+        // function hi(){
+    
+        //     const  hello = ()=>{
+        //         console.log(this);
+        //     }
+        //     hello();
+        // }
+    
+        // let obj = {
+        //     name:'yuvra'        
+        // }
+        //  hi.call(obj)
+    
+        /**
+         * promise in javascript is an object, used to perform asyncronous operation.
+         * it has three state
+         * 1. Pending 
+         * 2. Resolve 
+         * 3 Reject
+         * 
+         * */ 
+      
+    
+    //   let promise1 = new Promise((resolve, reject)=>{
+    //         setTimeout(()=>{
+    //             resolve("Promise 1 resoved after 3 second")
+    //         },3000)
+    //   })
+    
+    //   let count  = 0;
+    //   let interval;
+    // function recursivePromise(){
+    //     count++;
+    //     console.log(count);
+        
+    //     return new Promise((resolve, reject)=>{
+    //         if(count === 10){
+    //             clearInterval(interval);
+    //             resolve("Promsie 2 compleed after 10 count")
+    //         }else{
+    //             interval = setInterval(() => {
+    //             reject("Rejected")
+    //             recursivePromise();
+    //             }, 1000);
+    //         }
+    //     }).catch(()=>recursivePromise())
+    //   }
+     
+    
+    //   let promise3 = new Promise((resolve, reject)=>{
+    //         setTimeout(()=>{
+    //             resolve("Promise 3 resoved after 8 second")
+    //         },8000)
+    //   })
+    
+    //   recursivePromise().then((res)=>{
+    //         Promise.all([promise1, recursivePromise(), promise3]).then((res)=>{
+    //             console.log(res);
+                
+    //         })
+    //  
+    
+     
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<script>
+     class Vehicle{
+
+        constructor(){
+            if(this.constructor === Vehicle){
+                throw new Error('Abstract classes cannot be instantiated')
+            }
+        }
+
+        start(){
+            throw new Error('start() must be implimented')
+        }
+    }
+
+    class Car extends Vehicle{
+        start(){
+            console.log("start with key");
+        }
+    }
+
+    let bmw = new Car();
+    bmw.start();
+</script>

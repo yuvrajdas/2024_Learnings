@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" oninput="betterFunction(event)">
+    <button onclick="throttleFun()">Fire</button>
+    <script>
+        /**
+         * Debouncing : There is no keyword like deboucing, We manualy have to impliment it
+         * Debouce is a better function, when a event triger it do not execute as same time 
+         * the debouce function execute after a specific delay time.
+         * 
+         * the debounce function takes two argument
+         * 1. function
+         * 2. delay time
+         * 
+         * 
+         * */ 
+
+        function search(event){
+            console.log(event.target.value);
+        }
+
+        function debounce(fun, delay){
+            let timer;
+
+            return function(...args){
+                console.log(",,,args", args);
+
+                timer = setTimeout(()=>{
+                    console.log(this);
+                    
+                    fun.call(this, ...args);
+                }, delay)
+                
+            }
+        }
+        let betterFunction = debounce(search, 3000);
+
+
+        // _____________________ Throttling ______________________________________________
+
+        function fire(val){
+            console.log("fire ", val);
+            
+        }
+
+
+        let isAwaiting = false;
+        
+        function throttleFun(){
+            if(!isAwaiting){
+                fire.call(this, 'called');
+                isAwaiting = true;
+
+                setTimeout(()=>{
+                    isAwaiting = false;
+                }, 2000)
+            }
+        }
+    </script>
+</body>
+</html>

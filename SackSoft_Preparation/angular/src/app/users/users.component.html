@@ -1,0 +1,19 @@
+<!-- <h1>Child Component!</h1> -->
+<div>
+  <input type="text" (input)="search($event)">
+  <table *ngIf="filteredUserData.length>0">
+    <tr>
+      <th>ID</th>
+      <th (click)="sortColumn()">Name</th>
+      <th>Username</th>
+      <th>Email</th>
+    </tr>
+
+    <tr *ngFor="let item of filteredUserData">
+      <td>{{item.id}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.username}}</td>
+      <td>{{item.email}}</td>
+    </tr>
+  </table>
+</div>

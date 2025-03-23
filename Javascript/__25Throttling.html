@@ -13,18 +13,35 @@
         /*
             Throtting : It is a concept in javascript where first event let it execute and for the rest wait for the specified delay time.
         */
-        function executeFire(val){
-            console.log("gun "+val);
-        }
+        // function executeFire(val){
+        //     console.log("gun "+val);
+        // }
 
-        let isWaiting = false;
-        function fire() {
-            if(!isWaiting){
-                executeFire.call(this, "fired")
-                isWaiting = true;
-                setTimeout(() => {
-                    isWaiting = false;
-                }, 1000);
+        // let isWaiting = false;
+        // function fire() {
+        //     if(!isWaiting){
+        //         executeFire.call(this, "fired")
+        //         isWaiting = true;
+        //         setTimeout(() => {
+        //             isWaiting = false;
+        //         }, 1000);
+        //     }
+        // }
+
+
+        function executeFire(val){
+            console.log(val);
+            
+        }
+        isAwait = false;
+        function fire(){
+            if(!isAwait){
+                executeFire(this, 'fired');
+                isAwait = true;
+
+                setTimeout(()=>{
+                    isAwait = false;
+                }, 1000)
             }
         }
     </script>

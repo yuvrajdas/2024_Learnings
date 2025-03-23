@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        span{
+            /* display: inline-block; */
+            border: 1px solid green;
+            /* padding: 10px; */
+            /* margin-top: 100px; */
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <span>Inline Element</span>
+    <script>
+        
+        function * generatorFun(){
+            console.log("Generator Function Started");
+
+            yield "Step 1 of G fun"
+            yield "Step 2 of G fun"
+            yield "Step 3 of G fun"
+            
+            console.log("Hello last line of GF");
+            
+        }
+
+
+        let res = generatorFun();
+        console.log(res.next());
+        console.log(res.next());
+        console.log(res.next());
+        console.log(res.next());
+
+    </script>
+</body>
+</html>
